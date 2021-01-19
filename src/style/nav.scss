@@ -1,0 +1,39 @@
+.logo {
+	font-family: 'Skia';
+	font-size: 2.7rem;
+	color: #d61e1e;
+	display: flex;
+	justify-items: center;
+	align-items: center;
+	img {
+		width: 70px;
+	}
+}
+.middlebar {
+	width: 100%;
+	background-color: white;
+	font-family: 'Source Code Pro';
+	display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.searchbox{
+    display: flex;
+    align-items: center;
+    
+    input,button{border: none;
+            background: none;
+            font-size: 1.1rem;
+            padding: 0.5rem
+    }
+}
+.menu {
+	display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+}

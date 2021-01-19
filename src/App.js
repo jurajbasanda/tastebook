@@ -1,16 +1,30 @@
-import logo from './logo.svg'
-import './App.css'
+import React from 'react'
+import { BrowserRouter as BRouter, Route, Switch } from 'react-router-dom'
+//Screens
+import HomeScreen from './screens/HomeScreen'
+import NoMatch from './screens/NoMatch'
+//Components
+import Nav from './components/Nav'
+import Footer from './components/Footer'
+//Style
+import './style/App.scss'
 
 function App() {
 	return (
-		<div className='App'>
-			<header className='App-header'>
-				<img src={logo} className='App-logo' alt='logo' />
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
-			</header>
-		</div>
+		<>
+			<BRouter>
+				<Nav />
+				<Switch>
+					<Route path='/' exact>
+						<HomeScreen />
+					</Route>
+					<Route path='*'>
+						<NoMatch />
+					</Route>
+				</Switch>
+				<Footer />
+			</BRouter>
+		</>
 	)
 }
 

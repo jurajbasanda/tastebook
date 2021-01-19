@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link }from 'react-router-dom'
+import { Link } from 'react-router-dom'
 //Style
 import '../style/nav.scss'
 //images
@@ -27,19 +27,34 @@ const Nav = () => {
 						</li>
 					</ul>
 				</div>
-            </section>
-            <nav>
-            <div className='middlebar'>
-            <div className='logo'><img src={coriander} alt="coriander" srcSet=""/>Tastebook</div>
-            <div className='searchbox'><form><input type="text" placeholder='Search for recipe...'/><button><i className="fas fa-search"></i></button></form></div>
-            <ul className='menu'>
-            <li><Link>category</Link></li>
-            <li>about</li>
-            <li>contact</li>
-            </ul>
-            </div>
-            
-            </nav>
+			</section>
+			<nav>
+				<div className='middlebar'>
+					<div className='logo'>
+						<img src={coriander} alt='coriander' srcSet='' />
+						Tastebook
+					</div>
+					<div className='searchbox'>
+						<form>
+							<input type='text' placeholder='Search for recipe...' />
+							<button>
+								<i className='fas fa-search'></i>
+							</button>
+						</form>
+					</div>
+					<ul className='menu'>
+						<li>
+							<Link to='/'>category</Link>
+						</li>
+						<li>
+							<Link to='/'>about</Link>
+						</li>
+						<li>
+							<Link to='/'>contact</Link>
+						</li>
+					</ul>
+				</div>
+			</nav>
 		</header>
 	)
 }

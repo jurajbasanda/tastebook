@@ -1,7 +1,49 @@
+$dark: #414040;
+$red: #c22424;
 .homepage {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-    grid-template-rows: 70vh;
+	grid-template-columns: 1fr 2fr;
+	grid-template-rows: 60vh;
+	justify-items: center;
+    align-items: center;
+    margin-bottom: 15vh;
+	h1 {
+		font-size: 3.4rem;
+		padding: 0.5rem;
+		position: absolute;
+		color: white;
+		left: 27rem;
+		top: 20rem;
+		background-color: $red;
+	}
+}
+.first-bg {
+	height: 100%;
+	width: 100%;
+	background-image: url('../images/steak&chips.png');
+	background-repeat: no-repeat;
+	background-position: right;
+	background-size: 90%;
+}
+.recipe {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	justify-items: center;
+    align-content: center;
+    padding: 2rem;
+}
+.recipe-group {
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap:2rem;
+}
+.item {
+	display: flex;
+    flex-direction: column;
     justify-items: center;
-    align-items: flex-start;
+    align-content: center;
+	img {
+		width: 100%;
+	}
 }

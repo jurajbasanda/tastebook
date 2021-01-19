@@ -53,7 +53,8 @@ const Nav = () => {
 							<Link to='/'>contact</Link>
 						</li>
 					</ul>
-				</div>
+                </div>
+                <div></div>
 			</nav>
 		</header>
 	)

@@ -1,4 +1,5 @@
 $dark: #414040;
+$red:#c22424;
 footer {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -37,7 +38,7 @@ footer {
 	}
 }
 .newsletter-footer {
-	background-color: #d61e1e;
+	background-color: $red;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

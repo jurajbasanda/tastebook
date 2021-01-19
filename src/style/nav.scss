@@ -1,3 +1,5 @@
+$dark: #414040;
+$red:#c22424;
 .topbar {
 	display: flex;
 	justify-content: center;
@@ -8,24 +10,27 @@
 		display: flex;
 		align-items: center;
 		justify-items: space-evenly;
-        font-size: 1.4rem;
-        li{margin: 0.3rem;}
+		font-size: 1.4rem;
+		li {
+			margin: 0.3rem;
+		}
 	}
 }
 .logo {
 	font-family: 'Skia';
 	font-size: 2.7rem;
-	color: #d61e1e;
+	color: $red;
 	display: flex;
 	justify-items: center;
-    align-items: center;
-    cursor: pointer;
+	align-items: center;
+	cursor: pointer;
 	img {
 		width: 70px;
 	}
 }
 .middlebar {
 	width: 100%;
+	height: 5rem;
 	background-color: white;
 	font-family: 'Source Code Pro';
 	display: flex;
@@ -47,7 +52,7 @@
 		cursor: pointer;
 	}
 	input:hover {
-		border-bottom: black 1px solid;
+		border-bottom: $dark 1px solid;
 	}
 }
 .menu {

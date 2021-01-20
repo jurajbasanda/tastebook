@@ -1,27 +1,28 @@
 $dark: #414040;
 $red: #c22424;
 .topbar {
-    display: flex;
-    flex-direction: row;
+	display: flex;
+	flex-direction: row;
 	justify-content: space-between;
-	align-items: flex-end;
-	padding-right: 20vh;
-	padding-left: 20vh;
+	align-items: center;
+	padding-right: 4rem;
+	padding-left: 4rem;
 }
 .user-menu-group {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-items: center;
-    margin: 0.3rem;
-    margin-left: 1.3rem;
-
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-items: center;
+	margin: 0.3rem;
+	margin-left: 1.3rem;
 }
 .soc-net {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    span{margin-right: 0.7rem;}
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	span {
+		margin-right: 0.7rem;
+	}
 	ul {
 		display: flex;
 		align-items: center;
@@ -36,12 +37,14 @@ $red: #c22424;
 	font-family: 'Skia';
 	font-size: 2.7rem;
 	color: $red;
-	display: flex;
-	justify-items: center;
-	align-items: center;
 	cursor: pointer;
-	img {
-		width: 70px;
+	a {
+		display: flex;
+		justify-items: center;
+		align-items: center;
+		img {
+			width: 70px;
+		}
 	}
 }
 .middlebar {
@@ -78,6 +81,19 @@ $red: #c22424;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-rows: 1fr;
 	gap: 1rem;
+	font-weight: bold;
 	text-align: center;
 	text-transform: uppercase;
+}
+.burger {
+	display: none;
+}
+.mobil {
+	display: none;
+}
+@media screen and (max-width: 800px) {
+	.topbar {
+		padding-right: 1rem;
+		padding-left: 1rem;
+	}
 }

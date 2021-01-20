@@ -11,8 +11,7 @@ const HomeScreen = () => {
 		<>
 			<section className='homepage'>
 				<div className='info-group'>
-					
-                    <h1>Chips & Steak</h1>
+                    <h1><strong>Chips & Steak</strong></h1>
                     <ul className='info'>
 						<li>
 							<img src={vegetarian} alt='Vegetarian' />

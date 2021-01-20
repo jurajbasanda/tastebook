@@ -7,14 +7,26 @@ import coriander from '../images/Coriander-PNG.png'
 const Nav = () => {
 	//States
 	const [Menu, setMenu] = useState('')
-	//Open Mobile Menu
+	const [MenuCategory, setMenuCategory] = useState('')
+	//Mobile Menu
 	const mobilMenu = () => {
 		Menu === '' ? setMenu(' open') : setMenu('')
 	}
 	//Close Mobile Menu
-	const closeMobilMenu = () => {
+	const closeMenus = () => {
 		setMenu('')
+		setMenuCategory('')
 	}
+	//Mobile Category Menu
+	const mobilMenuCategory = () => {
+		MenuCategory === '' ? setMenuCategory(' open') : setMenuCategory('')
+	}
+	//Both
+	const mobilMenus = () => {
+		mobilMenu()
+		mobilMenuCategory()
+	}
+
 	return (
 		<header>
 			<section className='topbar'>
@@ -48,8 +60,8 @@ const Nav = () => {
 				<div className='middlebar'>
 					<div
 						className='logo'
-						onClick={closeMobilMenu}
-						onKeyDown={closeMobilMenu}
+						onClick={closeMenus}
+						onKeyDown={closeMenus}
 					>
 						<Link to='/'>
 							<img src={coriander} alt='coriander' srcSet='' />
@@ -87,7 +99,7 @@ const Nav = () => {
 							</Link>
 						</li>
 						<li>
-							<Link to='/'  rel='about' aria-label='about'>
+							<Link to='/' rel='about' aria-label='about'>
 								about
 							</Link>
 						</li>
@@ -103,15 +115,15 @@ const Nav = () => {
 								to='/'
 								rel='next'
 								aria-label='category'
-								onClick={mobilMenu}
-								onKeyDown={mobilMenu}
+								onClick={mobilMenuCategory}
+								onKeyDown={mobilMenuCategory}
 							>
 								category
 							</Link>
 						</li>
 						<li>
 							<Link
-								to='/'
+								to='/about'
 								rel='next'
 								aria-label='about'
 								onClick={mobilMenu}
@@ -122,8 +134,7 @@ const Nav = () => {
 						</li>
 						<li>
 							<Link
-								to='/'
-								href='#story'
+								to='/contact'
 								rel='next'
 								aria-label='contact'
 								onClick={mobilMenu}
@@ -133,8 +144,42 @@ const Nav = () => {
 							</Link>
 						</li>
 					</ul>
+					<ul className={`mobil ${MenuCategory}`}>
+						<li>
+							<Link
+								to='/'
+								rel='next'
+								aria-label='pork'
+								onClick={mobilMenus}
+								onKeyDown={mobilMenus}
+							>
+								pork
+							</Link>
+						</li>
+						<li>
+							<Link
+								to='/beef'
+								rel='next'
+								aria-label='beef'
+								onClick={mobilMenus}
+								onKeyDown={mobilMenus}
+							>
+								beef
+							</Link>
+						</li>
+						<li>
+							<Link
+								to='/chicken'
+								rel='next'
+								aria-label='chicken'
+								onClick={mobilMenus}
+								onKeyDown={mobilMenus}
+							>
+								chicken
+							</Link>
+						</li>
+					</ul>
 				</div>
-				<div></div>
 			</nav>
 		</header>
 	)

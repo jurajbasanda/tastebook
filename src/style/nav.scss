@@ -89,11 +89,24 @@ $red: #c22424;
 	display: none;
 }
 .mobil {
+	background-color: white;
 	display: none;
+	position: absolute;
+	flex-direction: column;
+	top:18%;
+	left: 0%;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 800px) {//------------------------------------800px--------------------
+	.menu{display: none;}
+	.burger{display: flex;}
+	.open{display: flex;
+
+	}
 	.topbar {
 		padding-right: 1rem;
 		padding-left: 1rem;
 	}
+}
+@media screen and (max-width: 570px) {//------------------------------------800px--------------------
+
 }

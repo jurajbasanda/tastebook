@@ -1,21 +1,33 @@
 $dark: #414040;
 $red: #c22424;
 .homepage {
+    min-height: 45vh;
 	display: grid;
 	grid-template-columns: 1fr 2fr;
-	grid-template-rows: 60vh;
+	grid-template-rows: 1fr;
 	justify-items: center;
     align-items: center;
-    margin-bottom: 15vh;
-	h1 {
+    margin-bottom: 3rem;
+	
+}
+.info-group{
+    h1 {
 		font-size: 3.4rem;
 		padding: 0.5rem;
 		position: absolute;
 		color: white;
-		left: 27rem;
-		top: 20rem;
+		left: 30%;
+		top: 40%;
 		background-color: $red;
-	}
+    }
+    ul{display: flex;
+        padding: 0.5rem;
+		position: absolute;
+		color: white;
+		left: 30%;
+		top: 30%;
+    }
+    img{width: 3rem;}
 }
 .first-bg {
 	height: 100%;
@@ -23,7 +35,7 @@ $red: #c22424;
 	background-image: url('../images/steak&chips.png');
 	background-repeat: no-repeat;
 	background-position: right;
-	background-size: 90%;
+	background-size: 80%;
 }
 .recipe {
     display: flex;

@@ -1,11 +1,27 @@
 $dark: #414040;
-$red:#c22424;
+$red: #c22424;
 .topbar {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    display: flex;
+    flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-end;
+	padding-right: 20vh;
+	padding-left: 20vh;
+}
+.user-menu-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    margin: 0.3rem;
+    margin-left: 1.3rem;
+
 }
 .soc-net {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    span{margin-right: 0.7rem;}
 	ul {
 		display: flex;
 		align-items: center;

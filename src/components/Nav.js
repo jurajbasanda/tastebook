@@ -9,7 +9,8 @@ const Nav = () => {
 		<header>
 			<section className='topbar'>
 				<div className='soc-net'>
-					<ul>
+                <span>Fallow Us </span>
+                    <ul>
 						<li>
 							<a href='/'>
 								<i className='fab fa-facebook-f'></i>
@@ -27,6 +28,11 @@ const Nav = () => {
 						</li>
 					</ul>
 				</div>
+				<div className='user-menu-group'>
+					<Link>
+						<i className='fas fa-user'></i> Sign In
+					</Link>
+				</div>
 			</section>
 			<nav>
 				<div className='middlebar'>
@@ -36,7 +42,12 @@ const Nav = () => {
 					</div>
 					<div className='searchbox'>
 						<form>
-							<input type='text' placeholder='Search for recipe...' />
+							<label htmlFor='Search'></label>
+							<input
+								type='text'
+								id='Search'
+								placeholder='Search for recipe...'
+							/>
 							<button>
 								<i className='fas fa-search'></i>
 							</button>
@@ -53,8 +64,8 @@ const Nav = () => {
 							<Link to='/'>contact</Link>
 						</li>
 					</ul>
-                </div>
-                <div></div>
+				</div>
+				<div></div>
 			</nav>
 		</header>
 	)

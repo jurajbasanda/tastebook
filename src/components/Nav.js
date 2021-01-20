@@ -29,7 +29,7 @@ const Nav = () => {
 					</ul>
 				</div>
 				<div className='user-menu-group'>
-					<Link>
+					<Link to='/'>
 						<i className='fas fa-user'></i> Sign In
 					</Link>
 				</div>

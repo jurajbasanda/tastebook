@@ -33,6 +33,9 @@ $red: #c22424;
 		}
 	}
 }
+nav{button{background-color: white;
+		border:none;
+		font-size: 1.4rem;}}
 .logo {
 	font-family: 'Skia';
 	font-size: 2.3rem;
@@ -99,8 +102,11 @@ $red: #c22424;
 	align-items: center;
 	width: 100%;
 	height: 50%;
-	top: 0%;
+	top: 5%;
 	left: 0%;
+}
+.flex570 {
+	display: none;
 }
 @media screen and (max-width: 800px) {
 	//------------------------------------800px--------------------
@@ -117,12 +123,10 @@ $red: #c22424;
 		padding-right: 1rem;
 		padding-left: 1rem;
 	}
-	.flex570 {
-		display: none;
-	}
+	
 }
 @media screen and (max-width: 570px) {
-	//------------------------------------800px--------------------
+	//------------------------------------570px--------------------
 	.middlebar {
 		width: 100%;
 		height: 5rem;

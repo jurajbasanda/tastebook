@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 //Style
 import '../style/nav.scss'
 //images
-import coriander from '../images/Coriander-PNG.png'
 import logo from '../images/tastyLogo.png'
 const Nav = () => {
 	//States

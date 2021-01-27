@@ -43,7 +43,7 @@ const HomeScreen = () => {
 				<h2>Popular</h2>
 				<div className='recipe-group'>
 					{food.map((item) => (
-						<div className='item'>
+						<div key={item.name} className='item'>
 							<img src={item.img} alt='recipe' srcSet='' />
 							<h3>{item.name}</h3>
 						</div>

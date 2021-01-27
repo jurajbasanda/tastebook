@@ -7,11 +7,13 @@ import hot from '../images/hot.png'
 import glutenFree from '../images/gluten-free.png'
 import time from '../images/time.png'
 import picture1 from '../images/pizza.png'
+import picture2 from '../images/Egg-Fried-Rice.png'
+import picture3 from '../images/steak&chips.png'
 
 const HomeScreen = () => {
 	const food = [
 		{ name: 'Pizza', cal: 1490, prepTime: 45, img: picture1 },
-		{ name: 'Pasta', cal: 1387, prepTime: 20, img: picture1 },
+		{ name: 'Pasta', cal: 1387, prepTime: 20, img: picture2},
 	]
 	return (
 		<>
@@ -37,7 +39,7 @@ const HomeScreen = () => {
 						</li>
 					</ul>
 				</div>
-				<div className='first-bg'></div>
+				<div className='first-bg' style={{backgroundImage:`url(${picture3})`}}></div>
 			</section>
 			<section className='recipe'>
 				<h2>Popular</h2>

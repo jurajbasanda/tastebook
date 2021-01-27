@@ -59,17 +59,13 @@ const Nav = () => {
 			</section>
 			<nav>
 				<div className='middlebar'>
-					<div
-						className='logo'
-						onClick={closeMenus}
-						onKeyDown={closeMenus}
-					>
+					<div className='logo' onClick={closeMenus} onKeyDown={closeMenus}>
 						<Link to='/'>
 							<img src={logo} alt='coriander' srcSet='' />
 							<span>Tastebook</span>
 						</Link>
 					</div>
-					<div className='searchbox'>
+					<div className='searchbox none570'>
 						<form>
 							<label htmlFor='Search'></label>
 							<input
@@ -89,9 +85,11 @@ const Nav = () => {
 						aria-label='Menu'
 						onClick={mobilMenu}
 						onKeyDown={mobilMenu}
-						className='burger'
+						className='burger '
 					>
-						<i className='fas fa-bars' />
+						<button>
+							<i className='fas fa-bars' />
+						</button>
 					</div>
 					<ul className='menu'>
 						<li>
@@ -144,6 +142,14 @@ const Nav = () => {
 								contact
 							</Link>
 						</li>
+						<li>
+							<button onClick={mobilMenu} onKeyDown={mobilMenu}>
+								<i
+									style={{ color: 'black', fontSize: '1.5rem' }}
+									className='far fa-window-close'
+								></i>
+							</button>
+						</li>
 					</ul>
 					<ul className={`mobil ${MenuCategory}`}>
 						<li>
@@ -179,7 +185,24 @@ const Nav = () => {
 								chicken
 							</Link>
 						</li>
+						<li>
+							<button onClick={mobilMenus} onKeyDown={mobilMenu}>
+								<i
+									style={{ color: 'black', fontSize: '1.5rem' }}
+									className='far fa-window-close'
+								></i>
+							</button>
+						</li>
 					</ul>
+				</div>
+				<div className='searchbox flex570'>
+					<form>
+						<label htmlFor='Search'></label>
+						<input type='text' id='Search' placeholder='Search for recipe...' />
+						<button>
+							<i className='fas fa-search'></i>
+						</button>
+					</form>
 				</div>
 			</nav>
 		</header>

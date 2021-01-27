@@ -9,6 +9,10 @@ import time from '../images/time.png'
 import picture1 from '../images/pizza.png'
 
 const HomeScreen = () => {
+	const food = [
+		{ name: 'Pizza', cal: 1490, prepTime: 45, img: picture1 },
+		{ name: 'Pasta', cal: 1387, prepTime: 20, img: picture1 },
+	]
 	return (
 		<>
 			<section className='homepage'>
@@ -38,38 +42,12 @@ const HomeScreen = () => {
 			<section className='recipe'>
 				<h2>Popular</h2>
 				<div className='recipe-group'>
-					<div className='item'>
-						<img src={picture1} alt='recipe' srcSet='' />
-						<h3>Pizza</h3>
-					</div>
-					<div className='item'>
-						<img src={picture1} alt='recipe' srcSet='' />
-						<h3>Pizza</h3>
-					</div>
-					<div className='item'>
-						<img src={picture1} alt='recipe' srcSet='' />
-						<h3>Pizza</h3>
-					</div>
-					<div className='item'>
-						<img src={picture1} alt='recipe' srcSet='' />
-						<h3>Pizza</h3>
-					</div>
-					<div className='item'>
-						<img src={picture1} alt='recipe' srcSet='' />
-						<h3>Pizza</h3>
-					</div>
-					<div className='item'>
-						<img src={picture1} alt='recipe' srcSet='' />
-						<h3>Pizza</h3>
-					</div>
-					<div className='item'>
-						<img src={picture1} alt='recipe' srcSet='' />
-						<h3>Pizza</h3>
-					</div>
-					<div className='item'>
-						<img src={picture1} alt='recipe' srcSet='' />
-						<h3>Pizza</h3>
-					</div>
+					{food.map((item) => (
+						<div className='item'>
+							<img src={item.img} alt='recipe' srcSet='' />
+							<h3>{item.name}</h3>
+						</div>
+					))}
 				</div>
 			</section>
 		</>

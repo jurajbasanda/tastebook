@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import '../style/nav.scss'
 //images
 import coriander from '../images/Coriander-PNG.png'
+import logo from '../images/tastyLogo.png'
 const Nav = () => {
 	//States
 	const [Menu, setMenu] = useState('')
@@ -64,7 +65,7 @@ const Nav = () => {
 						onKeyDown={closeMenus}
 					>
 						<Link to='/'>
-							<img src={coriander} alt='coriander' srcSet='' />
+							<img src={logo} alt='coriander' srcSet='' />
 							<span>Tastebook</span>
 						</Link>
 					</div>

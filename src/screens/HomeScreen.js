@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
+//Components
+import Popular from '../components/Popular'
 //Style
 import '../style/HomeScreen.scss'
 //Images
@@ -29,7 +31,7 @@ const HomeScreen = () => {
 	]
 	const random = food[Math.floor(Math.random() * food.length)]
 	return (
-		<>
+		<Fragment>
 			{random ? (
 				<section className='homepage'>
 					<Link to='/' className='order2'>
@@ -62,26 +64,8 @@ const HomeScreen = () => {
 				</section>
 			) : null}
 
-			<section className='recipe'>
-				<h2>Popular</h2>
-				<div className='recipe-group'>
-					{food.map((item) => (
-								<Link to='/'>
-									<div key={item.name} className='item'>
-										<img src={item.img} alt='recipe' srcSet='' />
-										<h3>{item.name}</h3>
-									</div>
-								</Link>
-						  ))
-					}</div>
-					{food.length < 16 ? (
-						<button>Show more</button>
-					)
-						: null
-					}
-				
-			</section>
-		</>
+			<Popular food={food} />
+		</Fragment>
 	)
 }
 

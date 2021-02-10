@@ -15,6 +15,7 @@ const Popular = ({ food }) => {
 					</Link>
 				))}
 			</div>
+				
 			{food.length < 16 ? <button>Show more</button> : null}
 		</section>
 	)

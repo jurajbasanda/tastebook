@@ -7,10 +7,10 @@ const Popular = ({ food }) => {
 			<h2>Popular</h2>
 			<div className='recipe-group'>
 				{food.map((item) => (
-					<Link to='/'>
-						<div key={item.name} className='item'>
-							<img src={item.img} alt='recipe' srcSet='' />
-							<h3>{item.name}</h3>
+					<Link to='/' key={item._id}>
+						<div  className='item'>
+							<img src={item.img} alt={item.title} srcSet='' />
+							<h3>{item.title}</h3>
 						</div>
 					</Link>
 				))}

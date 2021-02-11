@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 //Components
 import Popular from '../components/Popular'
 //Style
@@ -19,20 +20,32 @@ import picture7 from '../images/shepherds-pie.jpg'
 import picture8 from '../images/spaghetti-bolognese.jpg'
 
 const HomeScreen = () => {
-	const food = [
-		{ name: 'Pizza', cal: 1490, prepTime: 45, img: picture1 },
-		{ name: 'Egg fried rice', cal: 1387, prepTime: 36, img: picture2 },
-		{ name: 'Steak & fries', cal: 1744, prepTime: 60, img: picture3 },
-		{ name: 'Avocado on toast', cal: 1044, prepTime: 20, img: picture4 },
-		{ name: 'Chilli con carne', cal: 1744, prepTime: 60, img: picture5 },
-		{ name: 'Chicken curry', cal: 1490, prepTime: 45, img: picture6 },
-		{ name: "Shepherd's pie", cal: 1387, prepTime: 36, img: picture7 },
-		{ name: 'Spagetti bolognese', cal: 1387, prepTime: 36, img: picture8 },
-	]
-	const random = food[Math.floor(Math.random() * food.length)]
+	const [loading, setLoading] = useState(true)
+	const [error, setError] = useState(false)
+	const [food, setFood] = useState([])
+	const [random,setRandom] =useState({})
+	const getData = async () => {
+		try {
+			const { data } = await axios.get('/recipes')
+			const res = data
+			const ran = res[Math.floor(Math.random() * res.length)]
+
+			setLoading(false)
+			setFood(res)
+			setRandom(ran)
+		} catch (err) {
+			setLoading(false)
+			setError(err)
+			console.log(err)
+		}
+	}
+	useEffect(() => {
+		getData()
+	}, [])
+	console.log(random)
 	return (
 		<Fragment>
-			{random ? (
+			
 				<section className='homepage'>
 					<Link to='/' className='order2'>
 						<div className='info-group'>
@@ -42,7 +55,7 @@ const HomeScreen = () => {
 								</li>
 							</ul>
 							<h1>
-								<strong>{random.name}</strong>
+								<strong>{random.title}</strong>
 							</h1>
 							<ul className='info'>
 								<li>
@@ -62,9 +75,8 @@ const HomeScreen = () => {
 						style={{ backgroundImage: `url(${random.img})` }}
 					></div>
 				</section>
-			) : null}
-
-			<Popular food={food} />
+				<Popular food={food} />
+			
 		</Fragment>
 	)
 }

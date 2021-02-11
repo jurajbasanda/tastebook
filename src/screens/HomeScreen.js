@@ -76,7 +76,6 @@ const HomeScreen = () => {
 					></div>
 				</section>
 				<Popular food={food} />
-			
 		</Fragment>
 	)
 }

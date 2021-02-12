@@ -11,7 +11,6 @@ $whiter-red: #c22424bb;
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 	margin-top: 1rem;
-	margin-bottom: 1rem;
 	background-color: white;
 }
 .info-group {
@@ -69,24 +68,9 @@ img {
 	align-content: center;
 	padding: 2.5rem;
 	margin-top: 1rem;
-	margin-bottom: 1rem;
 	background-color: white;
 	h2 {
 		margin-bottom: 2rem;
-	}
-	button {
-		color: #ffffff;
-		background-color: $whiter-red;
-		padding: 0.5rem;
-		border: none;
-		justify-self: center;
-		align-self: center;
-		margin-top: 2rem;
-		font-size: 1.3rem;
-		cursor: pointer;
-	}
-	button:hover{
-		background-color: $red;
 	}
 }
 .recipe-group {
@@ -111,9 +95,14 @@ img {
 		transition: 0.5s all ease-in-out;
 	}
 	img:hover {
-		transform: scale(1.4);
+		transform: scale(1.2);
 	}
 }
+.show-more-group{display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-bottom: 2rem;
+			}
 //--------------------------------------------800px--------------------
 @media screen and (max-width: 800px) {
 	.homepage {

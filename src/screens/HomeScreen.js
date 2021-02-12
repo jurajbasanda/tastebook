@@ -79,6 +79,11 @@ const HomeScreen = () => {
 						></div>
 					</section>
 					<Popular food={food} />
+					{food.length > 8 ? (
+						<div className='show-more-group'>
+							<button className='show-more-btn'>Show more</button>
+						</div>
+					) : null}
 				</Fragment>
 			) : (
 				<Loader />

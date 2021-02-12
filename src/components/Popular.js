@@ -17,7 +17,6 @@ const Popular = ({ food }) => {
 				))}
 			</div>
 				
-			{food.length < 16 ? <button>Show more</button> : null}
 		</section>
 	)
 }

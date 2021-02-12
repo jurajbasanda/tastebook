@@ -1,6 +1,7 @@
 $dark: #414040;
-$red:#c22424;
 $black: rgb(43, 41, 41);
+$red: #c22424;
+$whiter-red: #c22424bb;
 * {
 	margin: 0;
 	padding: 0;
@@ -10,13 +11,33 @@ html {
 	scroll-behavior: smooth;
 }
 body {
-	background-color: #E0E0E0;
+	background-color: #e0e0e0;
 	font-family: 'Sathu';
 }
-ul{color: $black;
-	list-style: none;}
-a{
-padding: 0;
-margin: 0;
-color: $black;
-text-decoration: none;}
+ul {
+	color: $black;
+	list-style: none;
+}
+a {
+	padding: 0;
+	margin: 0;
+	color: $black;
+	text-decoration: none;
+}
+.show-more-btn {
+	display: flex;
+	justify-self: center;
+	align-self: center;
+	color: #ffffff;
+	background-color: $whiter-red;
+	padding: 0.5rem;
+	border: none;
+	justify-self: center;
+	align-self: center;
+	margin-top: 2rem;
+	font-size: 1.3rem;
+	cursor: pointer;
+}
+button:hover {
+	background-color: $red;
+}

@@ -10,7 +10,7 @@ const Popular = ({ food }) => {
 				{food.map((item) => (
 					<Link to='/' key={item._id}>
 						<div  className='item'>
-							<img src={item.img} alt={item.title} srcSet='' />
+							<div className='image'><img src={item.img} alt={item.title} srcSet='' /></div>
 							<h3>{item.title}</h3>
 						</div>
 					</Link>

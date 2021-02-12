@@ -5,24 +5,25 @@ import '../style/footer.scss'
 const Footer = () => {
     return <footer>
     <section className='social-footer'>
-    <h4>Fallow Us</h4>
-    <ul>
-						<li>
-							<a href='/'>
-								<i className='fab fa-facebook-f'></i>
-							</a>
-						</li>
-						<li>
-							<a href='/'>
-								<i className='fab fa-instagram'></i>
-							</a>
-						</li>
-						<li>
-							<a href='/'>
-								<i className='fab fa-twitter'></i>
-							</a>
-						</li>
-					</ul>
+    {// <h4>Fallow Us</h4>
+    // <ul>
+	// 					<li>
+	// 						<a href='/'>
+	// 							<i className='fab fa-facebook-f'></i>
+	// 						</a>
+	// 					</li>
+	// 					<li>
+	// 						<a href='/'>
+	// 							<i className='fab fa-instagram'></i>
+	// 						</a>
+	// 					</li>
+	// 					<li>
+	// 						<a href='/'>
+	// 							<i className='fab fa-twitter'></i>
+	// 						</a>
+	// 					</li>
+	// 				</ul>
+}
     </section>
     <section className='newsletter-footer'>
     <form>

@@ -22,6 +22,13 @@ $whiter-red: #c22424bb;
 		left: 20%;
 		top: 35%;
 		background-color: $red;
+		transition: all 0.5s ease-in-out;
+	}
+}
+.info-group:hover {
+	h1 {
+		color: $red;
+		background-color: white;
 	}
 }
 .time {
@@ -60,6 +67,7 @@ img {
 	background-position: left;
 	background-size: 70%;
 }
+
 .recipe {
 	display: flex;
 	flex-direction: column;
@@ -98,11 +106,12 @@ img {
 		transform: scale(1.2);
 	}
 }
-.show-more-group{display: flex;
-				justify-content: center;
-				align-items: center;
-				margin-bottom: 2rem;
-			}
+.show-more-group {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 2rem;
+}
 //--------------------------------------------800px--------------------
 @media screen and (max-width: 800px) {
 	.homepage {

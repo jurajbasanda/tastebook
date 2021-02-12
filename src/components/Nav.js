@@ -31,7 +31,6 @@ const Nav = () => {
 		<header>
 			<section className='topbar'>
 				<div className='soc-net'>
-					<span>Fallow Us </span>
 					<ul>
 						<li>
 							<a href='/'>
@@ -52,7 +51,7 @@ const Nav = () => {
 				</div>
 				<div className='user-menu-group'>
 					<Link to='/'>
-						<i className='fas fa-user'></i> Sign In
+						<i className='fas fa-user'></i> Log In
 					</Link>
 				</div>
 			</section>

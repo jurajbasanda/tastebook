@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 //Components
 import Popular from '../components/Popular'
+import Loader from '../components/Loader'
 //Style
 import '../style/HomeScreen.scss'
 //Images
@@ -23,20 +24,19 @@ const HomeScreen = () => {
 	const [loading, setLoading] = useState(true)
 	const [error, setError] = useState(false)
 	const [food, setFood] = useState([])
-	const [random,setRandom] =useState({})
+	const [random, setRandom] = useState({})
 	const getData = async () => {
 		try {
 			const { data } = await axios.get('/recipes')
 			const res = data
 			const ran = res[Math.floor(Math.random() * res.length)]
 
-			setLoading(false)
 			setFood(res)
 			setRandom(ran)
+			setLoading(false)
 		} catch (err) {
 			setLoading(false)
 			setError(err)
-			console.log(err)
 		}
 	}
 	useEffect(() => {
@@ -45,37 +45,44 @@ const HomeScreen = () => {
 	console.log(random)
 	return (
 		<Fragment>
-			
-				<section className='homepage'>
-					<Link to='/' className='order2'>
-						<div className='info-group'>
-							<ul className='time'>
-								<li>
-									<img src={time} alt='Time' /> {random.prepTime} minutes
-								</li>
-							</ul>
-							<h1>
-								<strong>{random.title}</strong>
-							</h1>
-							<ul className='info'>
-								<li>
-									<img src={vegetarian} alt='Vegetarian' />
-								</li>
-								<li>
-									<img src={glutenFree} alt='Gluten Free' />
-								</li>
-								<li>
-									<img src={hot} alt='Spicy' />
-								</li>
-							</ul>
-						</div>
-					</Link>
-					<div
-						className='first-bg'
-						style={{ backgroundImage: `url(${random.img})` }}
-					></div>
-				</section>
-				<Popular food={food} />
+			{!loading ? (
+				<Fragment>
+					<section className='homepage'>
+						{random ? (
+							<Link to='/' className='order2'>
+								<div className='info-group'>
+									<ul className='time'>
+										<li>
+											<img src={time} alt='Time' /> {random.prepTime} minutes
+										</li>
+									</ul>
+									<h1>
+										<strong>{random.title}</strong>
+									</h1>
+									<ul className='info'>
+										<li>
+											<img src={vegetarian} alt='Vegetarian' />
+										</li>
+										<li>
+											<img src={glutenFree} alt='Gluten Free' />
+										</li>
+										<li>
+											<img src={hot} alt='Spicy' />
+										</li>
+									</ul>
+								</div>
+							</Link>
+						) : null}
+						<div
+							className='first-bg'
+							style={{ backgroundImage: `url(${random.img})` }}
+						></div>
+					</section>
+					<Popular food={food} />
+				</Fragment>
+			) : (
+				<Loader />
+			)}
 		</Fragment>
 	)
 }

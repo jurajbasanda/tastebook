@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 const Popular = ({ food }) => {
@@ -20,5 +21,7 @@ const Popular = ({ food }) => {
 		</section>
 	)
 }
-
+Popular.propTypes ={
+	food:PropTypes.array
+}
 export default Popular

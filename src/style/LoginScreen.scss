@@ -1,0 +1,34 @@
+$dark: #414040;
+$red: #c22424;
+$whiter-red: #c22424bb;
+.loginpage {
+	min-height: 60vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	margin-top: 1rem;
+	background-color: white;
+	form {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 13rem;
+		height: 12rem;
+		label {
+			margin-top: 0.8rem;
+			margin-bottom: 0.2rem;
+            font-size: 1rem;
+
+		}
+		button {
+			margin-top: 1rem;
+            font-size: 1rem;
+            padding: 0.2rem;
+		}
+        input{font-size: 1rem;
+                padding: 0.2rem;}
+	}
+}

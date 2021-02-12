@@ -50,7 +50,7 @@ const Nav = () => {
 					</ul>
 				</div>
 				<div className='user-menu-group'>
-					<Link to='/'>
+					<Link to='/login'>
 						<i className='fas fa-user'></i> Log In
 					</Link>
 				</div>

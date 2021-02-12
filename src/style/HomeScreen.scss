@@ -2,7 +2,7 @@ $dark: #414040;
 $red: #c22424;
 $whiter-red: #c22424bb;
 .homepage {
-	min-height: 45vh;
+	min-height: 60vh;
 	display: grid;
 	grid-template-columns: 1fr 2fr;
 	grid-template-rows: 1fr;
@@ -66,6 +66,7 @@ img {
 	background-repeat: no-repeat;
 	background-position: left;
 	background-size: 70%;
+	cursor: pointer;
 }
 
 .recipe {

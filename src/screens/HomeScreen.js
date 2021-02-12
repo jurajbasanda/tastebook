@@ -30,9 +30,9 @@ const HomeScreen = () => {
 			const { data } = await axios.get('/recipes')
 			const res = data
 			const ran = res[Math.floor(Math.random() * res.length)]
-
 			setFood(res)
-			setRandom(ran)
+			setRandom({title:ran?.title,
+						img:ran?.img})
 			setLoading(false)
 		} catch (err) {
 			setLoading(false)
@@ -42,14 +42,13 @@ const HomeScreen = () => {
 	useEffect(() => {
 		getData()
 	}, [])
-	console.log(random)
 	return (
 		<Fragment>
 			{!loading ? (
 				<Fragment>
 					<section className='homepage'>
 						{random ? (
-							<Link to='/' className='order2'>
+							<Link to={`/recipe/${random.id}`} className='order2'>
 								<div className='info-group'>
 									<ul className='time'>
 										<li>
@@ -79,7 +78,7 @@ const HomeScreen = () => {
 						></div>
 					</section>
 					<Popular food={food} />
-					{food.length < 8 ? (
+					{food.length > 8 ? (
 						<div className='show-more-group'>
 							<button className='show-more-btn'>Show more</button>
 						</div>

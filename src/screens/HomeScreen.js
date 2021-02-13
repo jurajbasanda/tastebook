@@ -1,54 +1,35 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { listRecipe } from '../actions/recipeActions'
+//Style
+import '../style/HomeScreen.scss'
 //Components
 import Popular from '../components/Popular'
 import Loader from '../components/Loader'
-//Style
-import '../style/HomeScreen.scss'
 //Images
 import vegetarian from '../images/Vegetarian.png'
 import hot from '../images/hot.png'
 import glutenFree from '../images/gluten-free.png'
 import time from '../images/time.png'
-import picture1 from '../images/pizza.png'
-import picture2 from '../images/Egg-Fried-Rice.png'
-import picture3 from '../images/steak&chips.png'
-import picture4 from '../images/avocadoOnToast&Egg.png'
-import picture5 from '../images/chilli-con-carne.png'
-import picture6 from '../images/chicken-cury.jpg'
-import picture7 from '../images/shepherds-pie.jpg'
-import picture8 from '../images/spaghetti-bolognese.jpg'
+
 
 const HomeScreen = () => {
-	const [loading, setLoading] = useState(true)
-	const [error, setError] = useState(false)
-	const [food, setFood] = useState([])
-	const [random, setRandom] = useState({})
-	const getData = async () => {
-		try {
-			const { data } = await axios.get('/recipes')
-			const res = data
-			const ran = res[Math.floor(Math.random() * res.length)]
-			setFood(res)
-			setRandom({title:ran?.title,
-						img:ran?.img})
-			setLoading(false)
-		} catch (err) {
-			setLoading(false)
-			setError(err)
-		}
-	}
+	const dispatch = useDispatch()
+	const recipeList = useSelector((state) => state.recipeList)
+	const { loading, error, recipes, random } = recipeList
 	useEffect(() => {
-		getData()
-	}, [])
+		dispatch(listRecipe())
+	}, [dispatch])
+
 	return (
 		<Fragment>
 			{!loading ? (
 				<Fragment>
 					<section className='homepage'>
 						{random ? (
-							<Link to={`/recipe/${random.id}`} className='order2'>
+							<Fragment>
+							<Link to={`/recipe/${random._id}`} className='order2'>
 								<div className='info-group'>
 									<ul className='time'>
 										<li>
@@ -71,14 +52,15 @@ const HomeScreen = () => {
 									</ul>
 								</div>
 							</Link>
+							<div
+								className='first-bg'
+								style={{ backgroundImage: `url(${random.img})` }}
+							></div>
+							</Fragment>
 						) : null}
-						<div
-							className='first-bg'
-							style={{ backgroundImage: `url(${random.img})` }}
-						></div>
 					</section>
-					<Popular food={food} />
-					{food.length > 8 ? (
+					<Popular food={recipes} />
+					{recipes?.length > 8 ? (
 						<div className='show-more-group'>
 							<button className='show-more-btn'>Show more</button>
 						</div>

@@ -8,7 +8,7 @@ const Popular = ({ food }) => {
 			<h2>Popular</h2>
 			<div className='recipe-group'>
 				{food.map((item) => (
-					<Link to='/' key={item._id}>
+					<Link to={`/recipe/${item._id}`} key={item._id}>
 						<div  className='item'>
 							<div className='image'><img src={item.img} alt={item.title} srcSet='' /></div>
 							<h3>{item.title}</h3>

@@ -2,7 +2,7 @@ $dark: #414040;
 $red: #c22424;
 $whiter-red: #c22424bb;
 .homepage {
-	min-height: 60vh;
+	min-height: 40vh;
 	display: grid;
 	grid-template-columns: 1fr 2fr;
 	grid-template-rows: 1fr;
@@ -100,7 +100,7 @@ img {
 	overflow: hidden;
 	img {
 		width: 100%;
-		height: 18rem;
+		height: 13rem;
 		transition: 0.5s all ease-in-out;
 	}
 	img:hover {

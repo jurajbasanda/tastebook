@@ -28,11 +28,11 @@ function recipeListReducer(state = { recipes: [] }, action) {
 function recipeDetailsReducer(state = { recipe: {} }, action) {
 	switch (action.type) {
 		case RECIPE_DETAILS_REQUEST:
-			return { loading: true, recipe: [] }
+			return { loading: true, recipe: {} }
 		case RECIPE_DETAILS_SUCCESS:
 			return {
 				loading: false,
-				recipe: action.payload,
+				recipe: action.payload
 			}
 		case RECIPE_DETAILS_FAIL:
 			return { loading: false, error: action.payload }

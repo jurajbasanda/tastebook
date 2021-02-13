@@ -5,6 +5,7 @@ import { listRecipe } from '../actions/recipeActions'
 //Style
 import '../style/HomeScreen.scss'
 //Components
+import ErrorMessage from '../components/ErrorMessage'
 import Popular from '../components/Popular'
 import Loader from '../components/Loader'
 //Images
@@ -12,7 +13,6 @@ import vegetarian from '../images/Vegetarian.png'
 import hot from '../images/hot.png'
 import glutenFree from '../images/gluten-free.png'
 import time from '../images/time.png'
-
 
 const HomeScreen = () => {
 	const dispatch = useDispatch()
@@ -24,38 +24,42 @@ const HomeScreen = () => {
 
 	return (
 		<Fragment>
-			{!loading ? (
+			{loading ? (
+				<Loader />
+			) : error ? (
+				<ErrorMessage message={error} />
+			) : (
 				<Fragment>
 					<section className='homepage'>
 						{random ? (
 							<Fragment>
-							<Link to={`/recipe/${random._id}`} className='order2'>
-								<div className='info-group'>
-									<ul className='time'>
-										<li>
-											<img src={time} alt='Time' /> {random.prepTime} minutes
-										</li>
-									</ul>
-									<h1>
-										<strong>{random.title}</strong>
-									</h1>
-									<ul className='info'>
-										<li>
-											<img src={vegetarian} alt='Vegetarian' />
-										</li>
-										<li>
-											<img src={glutenFree} alt='Gluten Free' />
-										</li>
-										<li>
-											<img src={hot} alt='Spicy' />
-										</li>
-									</ul>
-								</div>
-							</Link>
-							<div
-								className='first-bg'
-								style={{ backgroundImage: `url(${random.img})` }}
-							></div>
+								<Link to={`/recipe/${random._id}`} className='order2'>
+									<div className='info-group'>
+										<ul className='time'>
+											<li>
+												<img src={time} alt='Time' /> {random.prepTime} minutes
+											</li>
+										</ul>
+										<h1>
+											<strong>{random.title}</strong>
+										</h1>
+										<ul className='info'>
+											<li>
+												<img src={vegetarian} alt='Vegetarian' />
+											</li>
+											<li>
+												<img src={glutenFree} alt='Gluten Free' />
+											</li>
+											<li>
+												<img src={hot} alt='Spicy' />
+											</li>
+										</ul>
+									</div>
+								</Link>
+								<div
+									className='first-bg'
+									style={{ backgroundImage: `url(${random.img})` }}
+								></div>
 							</Fragment>
 						) : null}
 					</section>
@@ -66,8 +70,6 @@ const HomeScreen = () => {
 						</div>
 					) : null}
 				</Fragment>
-			) : (
-				<Loader />
 			)}
 		</Fragment>
 	)

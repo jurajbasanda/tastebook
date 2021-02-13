@@ -2,10 +2,8 @@ $dark: #414040;
 $red: #c22424;
 $whiter-red: #c22424bb;
 .recipepage {
-    display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr;
-	justify-items: center;
+    display: flex;
+	justify-content: center;
 	align-items: center;
 	padding-top: 1rem;
 	padding-bottom: 1rem;

@@ -2,13 +2,45 @@ $dark: #414040;
 $red: #c22424;
 $whiter-red: #c22424bb;
 .recipepage {
-    display: flex;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 0.2fr 1fr;
 	justify-content: center;
-	align-items: center;
-	padding-top: 1rem;
-	padding-bottom: 1rem;
+	align-items: flex-end;
+	padding: 1rem 15rem 1rem 15rem;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
-	min-height: 60vh;
-    background-color: #fff;
+	min-height: 40vh;
+	background-color: #fff;
+}
+.ingredients-group,
+.dcs-list {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	ul {
+		li {
+			margin: 1rem 0 0 0;
+		}
+		ol {
+			li {
+				margin: 1rem 0 0 0;
+			}
+		}
+	}
+}
+.dsc-group {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+.imgs-group {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	img {
+		width: 20rem;
+	}
 }

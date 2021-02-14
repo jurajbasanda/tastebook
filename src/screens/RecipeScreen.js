@@ -31,20 +31,31 @@ const RecipeScreen = () => {
 			) : (
 				<Fragment>
 					<section className='recipepage'>
-						<div>
+						<div className='recipepage-tile'>
 							<h1>{recipe.title}</h1>
 						</div>
-						<div className='dsc-list'>
-							<ol>
-								{recipe.description.map((step, i) => (
-									<li key={i}>{step}</li>
+						<div className='dsc-group'>
+							<div className='ingredients-group'>
+								<h2>Ingredients</h2>
+								<ul>
+									{recipe?.description?.map((step, i) => (
+										<li key={i}>{step}</li>
+									))}
+								</ul>
+							</div>
+							<div className='dsc-list'>
+								<h2>Method</h2>
+								<ol>
+									{recipe?.description?.map((step, i) => (
+										<li key={i}>{step}</li>
+									))}
+								</ol>
+							</div>
+							<div className='imgs-group'>
+								{recipe?.img?.map((item, i) => (
+									<img key={i} src={item} alt={recipe.title} />
 								))}
-							</ol>
-						</div>
-						<div className='imgs-group'>
-							{recipe?.img?.map((item, i) => (
-								<img key={i} src={item} alt={recipe.title} />
-							))}
+							</div>
 						</div>
 					</section>
 				</Fragment>

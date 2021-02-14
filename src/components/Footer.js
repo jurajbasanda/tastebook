@@ -1,29 +1,13 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 //Style
 import '../style/footer.scss'
 
 const Footer = () => {
     return <footer>
     <section className='social-footer'>
-    {// <h4>Fallow Us</h4>
-    // <ul>
-	// 					<li>
-	// 						<a href='/'>
-	// 							<i className='fab fa-facebook-f'></i>
-	// 						</a>
-	// 					</li>
-	// 					<li>
-	// 						<a href='/'>
-	// 							<i className='fab fa-instagram'></i>
-	// 						</a>
-	// 					</li>
-	// 					<li>
-	// 						<a href='/'>
-	// 							<i className='fab fa-twitter'></i>
-	// 						</a>
-	// 					</li>
-	// 				</ul>
-}
+ <h3>Have a recipe of your own to share ?</h3>
+ <Link to='/submit-recipe'>Submit your recipe here</Link>
     </section>
     <section className='newsletter-footer'>
     <form>

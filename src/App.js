@@ -4,6 +4,7 @@ import { BrowserRouter as BRouter, Route, Switch } from 'react-router-dom'
 import HomeScreen from './screens/HomeScreen'
 import RecipeScreen from './screens/RecipeScreen'
 import LoginScreen from './screens/LoginScreen'
+import SubmitRecipeScreen from './screens/SubmitRecipeScreen'
 import NoMatch from './screens/NoMatch'
 //Components
 import Nav from './components/Nav'
@@ -22,6 +23,9 @@ function App() {
 					</Route>
 					<Route path='/recipe/:id'>
 						<RecipeScreen />
+					</Route>
+					<Route path='/submit-recipe'>
+						<SubmitRecipeScreen />
 					</Route>
 					<Route path='/login'>
 						<LoginScreen />

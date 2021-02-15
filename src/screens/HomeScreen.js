@@ -43,17 +43,19 @@ const HomeScreen = () => {
 										<h1>
 											<strong>{random.title}</strong>
 										</h1>
-										<ul className='info'>
-											<li>
-												<img src={vegetarian} alt='Vegetarian' />
-											</li>
-											<li>
-												<img src={glutenFree} alt='Gluten Free' />
-											</li>
-											<li>
-												<img src={hot} alt='Spicy' />
-											</li>
-										</ul>
+										{
+											// <ul className='info'>
+											// 	<li>
+											// 		<img src={vegetarian} alt='Vegetarian' />
+											// 	</li>
+											// 	<li>
+											// 		<img src={glutenFree} alt='Gluten Free' />
+											// 	</li>
+											// 	<li>
+											// 		<img src={hot} alt='Spicy' />
+											// 	</li>
+											// </ul>
+										}
 									</div>
 								</Link>
 								<div

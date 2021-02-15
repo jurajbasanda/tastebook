@@ -10,7 +10,7 @@ import Popular from '../components/Popular'
 import '../style/RecipeScreen.scss'
 //Images
 import vegetarian from '../images/Vegetarian.png'
-import hot from '../images/hot.png'
+import hot from '../images/hot-food.png'
 import glutenFree from '../images/gluten-free.png'
 import time from '../images/time.png'
 
@@ -63,6 +63,16 @@ const RecipeScreen = () => {
 						<div className='dsc-group'>
 							<div className='ingredients-group'>
 								<h2>Ingredients</h2>
+								{recipe.serving ? (
+									<h3>
+										For {recipe.serving}{' '}
+										{recipe.servings > 1 ? (
+											<span>servings</span>
+										) : (
+											<span>serving</span>
+										)}
+									</h3>
+								) : null}
 								<ul>
 									{recipe?.description?.map((step, i) => (
 										<li key={i}>{step}</li>

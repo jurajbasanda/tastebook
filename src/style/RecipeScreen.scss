@@ -1,6 +1,6 @@
 $dark: #414040;
 $red: #c22424;
-$grey:#757575;
+$grey: #757575;
 $whiter-red: #c22424bb;
 .recipepage {
 	display: grid;
@@ -15,10 +15,15 @@ $whiter-red: #c22424bb;
 	background-color: #fff;
 	h1 {
 		font-size: 1.9rem;
-		margin-bottom:1rem;
-	}
-	h2{
 		margin-bottom: 1rem;
+	}
+	h2 {
+		margin-bottom: 1rem;
+	}
+	h3 {
+		font-size: 1.2rem;
+		font-style: italic;
+		border-bottom: 1px solid $grey;
 	}
 }
 .recipepage-title {
@@ -36,10 +41,12 @@ $whiter-red: #c22424bb;
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
-		span{margin-left: 0.5rem;}
+		span {
+			margin-left: 0.5rem;
+		}
 	}
 	img {
-		width: 1.5rem;
+		width: 1.8rem;
 	}
 }
 .ingredients-group,
@@ -66,7 +73,7 @@ $whiter-red: #c22424bb;
 			margin-right: 0.5rem;
 			padding: 0.3rem;
 			font-weight: bold;
-			border-right:1px solid $grey;
+			border-right: 1px solid $grey;
 			// transform: rotate(-50deg);
 			// border-radius: 50%;
 			// text-align: center;

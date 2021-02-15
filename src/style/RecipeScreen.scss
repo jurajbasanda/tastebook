@@ -1,32 +1,76 @@
 $dark: #414040;
 $red: #c22424;
+$grey:#757575;
 $whiter-red: #c22424bb;
 .recipepage {
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 0.2fr 1fr;
 	justify-content: center;
-	align-items: flex-end;
-	padding: 1rem 15rem 1rem 15rem;
+	align-items: flex-start;
+	padding: 1rem 12rem 1rem 12rem;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
-	min-height: 40vh;
+	min-height: 50vh;
 	background-color: #fff;
+	h1 {
+		font-size: 1.9rem;
+		margin-bottom:1rem;
+	}
+	h2{
+		margin-bottom: 1rem;
+	}
+}
+.recipepage-title {
+	margin-bottom: 2rem;
+	ul {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-end;
+	}
+	li {
+		border-right: 1px solid $grey;
+		padding-right: 1rem;
+		padding-left: 1rem;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		span{margin-left: 0.5rem;}
+	}
+	img {
+		width: 1.5rem;
+	}
 }
 .ingredients-group,
-.dcs-list {
+.dsc-list {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: flex-start;
-	ul {
+
+	li {
+		margin: 1rem 0 0 0;
+	}
+	ol {
+		list-style: none;
+		counter-reset: my-awesome-counter;
+		font-variant-numeric: tabular-nums;
+		font-feature-settings: 'tnum' 1;
 		li {
-			margin: 1rem 0 0 0;
+			margin: 0 0 1.5rem 0;
+			counter-increment: my-awesome-counter;
 		}
-		ol {
-			li {
-				margin: 1rem 0 0 0;
-			}
+
+		li:before {
+			content: counter(my-awesome-counter) '. ';
+			color: $grey;
+			margin-right: 0.5rem;
+			padding: 0.3rem;
+			font-weight: bold;
+			border-right:1px solid $grey;
+			// transform: rotate(-50deg);
+			// border-radius: 50%;
+			// text-align: center;
+			// box-shadow: 1px 1px 1px 1px #999;
 		}
 	}
 }
@@ -34,13 +78,20 @@ $whiter-red: #c22424bb;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	align-items: center;
 }
 .imgs-group {
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content: flex-end;
+	align-items: flex-end;
 	img {
-		width: 20rem;
+		justify-self: flex-end;
+		align-self: flex-end;
+		width: 35rem;
 	}
+}
+@media screen and (max-width: 800px) {
+	//------------------------------------800px--------------------
+}
+@media screen and (max-width: 570px) {
+	//------------------------------------570px--------------------
 }

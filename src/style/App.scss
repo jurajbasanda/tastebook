@@ -7,6 +7,12 @@ $whiter-red: #c22424bb;
 	padding: 0;
 	box-sizing: border-box;
 }
+*,
+:after,
+:before {
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
+}
 html {
 	scroll-behavior: smooth;
 }

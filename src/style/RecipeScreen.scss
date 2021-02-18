@@ -59,17 +59,18 @@ $whiter-red: #c22424bb;
 	}
 	ol {
 		list-style: none;
-		counter-reset: my-awesome-counter;
-		font-variant-numeric: tabular-nums;
-		font-feature-settings: 'tnum' 1;
+		line-height: 1.6rem;
+	
 		li {
-			margin: 0 0 1.5rem 0;
-			counter-increment: my-awesome-counter;
+			max-width: 10rem;
+			counter-increment: tabular-numbers;
+			font-variant: tabular-numbers;
 		}
 
 		li:before {
-			content: counter(my-awesome-counter) '. ';
+			content: 'Step ' counter(tabular-numbers) '. ';
 			color: $grey;
+			margin:-4.7rem;
 			margin-right: 0.5rem;
 			padding: 0.3rem;
 			font-weight: bold;
@@ -93,7 +94,7 @@ $whiter-red: #c22424bb;
 	img {
 		justify-self: flex-end;
 		align-self: flex-end;
-		width: 35rem;
+		width: 33rem;
 	}
 }
 @media screen and (max-width: 800px) {

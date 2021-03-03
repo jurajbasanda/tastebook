@@ -1,11 +1,10 @@
 import React, { Fragment, useEffect } from 'react'
-import { useParams, useHistory, Link } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { recipeDetail } from '../actions/recipeActions'
 //Componets
 import Loader from '../components/Loader'
 import ErrorMessage from '../components/ErrorMessage'
-import Popular from '../components/Popular'
 //Style
 import '../style/RecipeScreen.scss'
 //Images
@@ -16,7 +15,6 @@ import time from '../images/time.png'
 
 const RecipeScreen = () => {
 	//Router hooks
-	const { push, pathname, history } = useHistory()
 	const { id } = useParams()
 	//Use redux
 	const dispatch = useDispatch()
@@ -25,7 +23,6 @@ const RecipeScreen = () => {
 
 	useEffect(() => {
 		dispatch(recipeDetail(id))
-		console.log('aaaaa', history)
 	}, [id, dispatch])
 
 	return (

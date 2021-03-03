@@ -1,6 +1,5 @@
-$dark: #414040;
-$red: #c22424;
-$whiter-red: #c22424bb;
+@use './abstracts' as *;
+
 .loginpage {
 	min-height: 60vh;
 	display: flex;

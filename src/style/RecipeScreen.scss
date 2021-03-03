@@ -1,7 +1,5 @@
-$dark: #414040;
-$red: #c22424;
-$grey: #757575;
-$whiter-red: #c22424bb;
+@use './abstracts' as *;
+
 .recipepage {
 	display: grid;
 	grid-template-columns: 1fr;

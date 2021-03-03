@@ -1,3 +1,5 @@
+@use './abstracts' as *;
+
 .submitpage {
 	display: flex;
 	justify-content: center;
@@ -8,15 +10,17 @@
 	margin-bottom: 1rem;
 	min-height: 50vh;
 	background-color: #fff;
-    img{width: 50rem;}
+	img {
+		width: 50rem;
+	}
 	form {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: flex-start;
-        textarea{
-            width: 30rem;
-            min-height: 7rem;
-        }
+		textarea {
+			width: 30rem;
+			min-height: 7rem;
+		}
 	}
 }

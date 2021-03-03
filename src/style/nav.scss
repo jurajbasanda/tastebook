@@ -1,5 +1,5 @@
-$dark: #414040;
-$red: #c22424;
+@use './abstracts' as *;
+
 .topbar {
 	display: flex;
 	flex-direction: row;

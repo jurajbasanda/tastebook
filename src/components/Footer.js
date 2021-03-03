@@ -6,7 +6,7 @@ import '../style/footer.scss'
 const Footer = () => {
     return <footer>
     <section className='social-footer'>
- <h3>Have a recipe of your own to share ?</h3>
+ <h3>Have a recipe of your own <br/> to share ?</h3>
  <Link to='/submit-recipe'>Submit your recipe here</Link>
     </section>
     <section className='newsletter-footer'>

@@ -23,7 +23,7 @@ $whiter-red: #c22424bb;
 	h3 {
 		font-size: 1.2rem;
 		font-style: italic;
-		border-bottom: 1px solid $grey;
+		text-decoration: underline;
 	}
 }
 .recipepage-title {
@@ -49,18 +49,23 @@ $whiter-red: #c22424bb;
 		width: 1.8rem;
 	}
 }
-.ingredients-group,
-.dsc-list {
+.dsc-ingredients-group,
+.dsc-method-group {
 	display: flex;
 	flex-direction: column;
-
+	margin-top: 1rem;
+	margin-bottom: 5rem;
 	li {
 		margin: 1rem 0 0 0;
+	}
+	ul {
+		list-style: inside;
 	}
 	ol {
 		list-style: none;
 		line-height: 1.6rem;
-	
+		margin-left: 4.4rem;
+
 		li {
 			max-width: 10rem;
 			counter-increment: tabular-numbers;
@@ -70,7 +75,7 @@ $whiter-red: #c22424bb;
 		li:before {
 			content: 'Step ' counter(tabular-numbers) '. ';
 			color: $grey;
-			margin:-4.7rem;
+			margin: -4.7rem;
 			margin-right: 0.5rem;
 			padding: 0.3rem;
 			font-weight: bold;
@@ -87,18 +92,34 @@ $whiter-red: #c22424bb;
 	flex-direction: row;
 	justify-content: space-between;
 }
-.imgs-group {
+.dsc-imgs-group {
 	display: flex;
-	justify-content: flex-end;
-	align-items: flex-end;
 	img {
-		justify-self: flex-end;
-		align-self: flex-end;
-		width: 33rem;
+		align-self: center;
+		width: 35rem;
 	}
 }
-@media screen and (max-width: 800px) {
-	//------------------------------------800px--------------------
+@media screen and (max-width: 1150px) {
+	//----------------------------------------------------1150px--------------------
+	.dsc-group {
+		display: flex;
+		flex-direction: column-reverse;
+	}
+	.dsc-lists {
+		display: flex;
+		justify-content: space-around;
+	}
+}
+@media screen and (max-width: 600px) {
+	//-------------------------------------------------------600px--------------------
+	.dsc-imgs-group {
+		img {
+			width: 20rem;
+		}
+	}
+	.dsc-lists {
+		flex-direction: column;
+	}
 }
 @media screen and (max-width: 570px) {
 	//------------------------------------570px--------------------

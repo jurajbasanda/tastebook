@@ -1,17 +1,31 @@
 import React from 'react'
 
-const errorStyle={
-    display:"flex",
-    justifyContent:"center",
-    alignItems:"center",
-    height:"60vh"
+const errorStyle = {
+	display: 'flex',
+	justifyContent: 'center',
+	alignItems: 'center',
+	flexDirection: 'column',
+	textAlign: 'center',
+	minHeight: '60vh',
+  fontSize:'1.2rem'
 }
-const ErrorMessage = ({message}) => {
-  return (
-    <div style={errorStyle}>
-      <h1><i class="fas fa-exclamation-triangle"></i> {message} <i class="fas fa-exclamation-triangle"></i></h1>
-    </div>
-  )
+const ErrorMessage = ({ messageErr, message }) => {
+	return message ? (
+		<div style={errorStyle}>
+			<h1 style={errorStyle}>
+				<i className='fas fa-exclamation-triangle'></i>
+				<br />
+				You hit a wrong path <br />/{message.stringValue}
+			</h1>
+		</div>
+	) : messageErr ? (
+		<div style={errorStyle}>
+			<h1>
+				<i className='fas fa-exclamation-triangle'></i> {messageErr}{' '}
+				<i className='fas fa-exclamation-triangle'></i>
+			</h1>
+		</div>
+	) : null
 }
 
 export default ErrorMessage

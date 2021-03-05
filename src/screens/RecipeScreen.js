@@ -30,12 +30,14 @@ const RecipeScreen = () => {
 			{loading ? (
 				<Loader />
 			) : error ? (
-				<ErrorMessage message={error} />
+				<ErrorMessage messageErr={error} />
+			) : recipe.message ? (
+				<ErrorMessage message={recipe.message}/>
 			) : (
 				<Fragment>
 					<section className='recipepage'>
 						<div className='get-back'>
-							<Link to={`/`}>Go back</Link>
+							<Link to='/'><i className="fas fa-chevron-left"></i> Go back</Link>
 						</div>
 						<div className='recipepage-title'>
 							<h1>{recipe.title}</h1>

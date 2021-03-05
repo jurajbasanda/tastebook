@@ -7,7 +7,7 @@ const Footer = () => {
     return <footer>
     <section className='social-footer'>
  <h3>Have a recipe of your own <br/> to share ?</h3>
- <Link to='/submit-recipe'>Submit your recipe here</Link>
+ <Link to='/submit-recipe'>Submit your recipe</Link>
     </section>
     <section className='newsletter-footer'>
     <form>

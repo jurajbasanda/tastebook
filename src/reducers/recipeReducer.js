@@ -17,7 +17,14 @@ function recipeListReducer(state = { recipes: [] }, action) {
 			return {
 				loading: false,
 				recipes: foods,
-				random: { title: ran?.title, img: ran?.img[0],_id:ran?._id,prepTime:ran?.prepTime },
+				random: {
+					title: ran?.title,
+					img: ran?.img[0],
+					_id: ran?._id,
+					hot: ran?.hot,
+					glutenFree: ran?.glutenFree,
+					vegeterian: ran?.vegeterian,
+				},
 			}
 		case RECIPE_LIST_FAIL:
 			return { loading: false, error: action.payload }
@@ -32,7 +39,7 @@ function recipeDetailsReducer(state = { recipe: {} }, action) {
 		case RECIPE_DETAILS_SUCCESS:
 			return {
 				loading: false,
-				recipe: action.payload
+				recipe: action.payload,
 			}
 		case RECIPE_DETAILS_FAIL:
 			return { loading: false, error: action.payload }

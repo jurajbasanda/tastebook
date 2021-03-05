@@ -18,6 +18,15 @@ function App() {
 			<BRouter>
 				<Nav />
 				<Switch>
+					<Route path='/search/:keyword' exact>
+						<HomeScreen />
+					</Route>
+					<Route path='/page/:pageNumber' exact>
+						<HomeScreen />
+					</Route>
+					<Route path='/search/:keyword/page/:pagenumber' exact>
+						<HomeScreen />
+					</Route>
 					<Route path='/' exact>
 						<HomeScreen />
 					</Route>

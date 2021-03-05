@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import '../style/nav.scss'
 //images
 import logo from '../images/tastyLogo.png'
+import SearchBox from './SearchBox'
 const Nav = () => {
 	//States
 	const [Menu, setMenu] = useState('')
@@ -64,17 +65,7 @@ const Nav = () => {
 						</Link>
 					</div>
 					<div className='searchbox none570'>
-						<form>
-							<label htmlFor='Search'></label>
-							<input
-								type='text'
-								id='Search'
-								placeholder='Search for recipe...'
-							/>
-							<button>
-								<i className='fas fa-search'></i>
-							</button>
-						</form>
+						<SearchBox/>
 					</div>
 					<div
 						role='button'

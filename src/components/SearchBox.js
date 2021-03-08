@@ -16,7 +16,7 @@ const SearchBox = () => {
 		}
 	}
 	return (
-		<form onSubmit={submitHandler}>
+		<form onSubmit={submitHandler} autoComplete='on'>
 			<label htmlFor='Search'></label>
 			<input
 				type='text'

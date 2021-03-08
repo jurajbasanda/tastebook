@@ -65,7 +65,7 @@ const Nav = () => {
 						</Link>
 					</div>
 					<div className='searchbox none570'>
-						<SearchBox/>
+						<SearchBox />
 					</div>
 					<div
 						role='button'
@@ -185,13 +185,7 @@ const Nav = () => {
 					</ul>
 				</div>
 				<div className='searchbox flex570'>
-					<form>
-						<label htmlFor='Search'></label>
-						<input type='text' id='Search' placeholder='Search for recipe...' />
-						<button>
-							<i className='fas fa-search'></i>
-						</button>
-					</form>
+					<SearchBox />
 				</div>
 			</nav>
 		</header>

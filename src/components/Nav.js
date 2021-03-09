@@ -68,14 +68,16 @@ const Nav = () => {
 					{userInfo ? (
 						<div className='account-menu'>
 							<Link to='/myaccount'>
-								<i className='fas fa-user'></i> My Account
+								<i className='fas fa-user'></i>
+								<span>My Account</span>
 							</Link>{' '}
-							| <span onClick={logoutHnadler}> Log Out</span>
+							| <span onClick={logoutHnadler}>Log Out</span>
 						</div>
 					) : (
 						<div className='account-menu'>
 							<Link to='/login'>
-								<i className='fas fa-user'></i> Log In
+								<i className='fas fa-user'></i>
+								<span>Log In</span>
 							</Link>
 						</div>
 					)}

@@ -13,7 +13,6 @@ import Loader from '../components/Loader'
 import vegetarian from '../images/Vegetarian.png'
 import hot from '../images/hot-food.png'
 import glutenFree from '../images/gluten-free.png'
-import time from '../images/time.png'
 
 const HomeScreen = () => {
 	const { keyword } = useParams()

@@ -16,6 +16,23 @@
 	margin: 0.3rem;
 	margin-left: 1.3rem;
 }
+.account-menu {
+	span {
+		margin-left: 0.5rem;
+	}
+	a {
+		margin-right: 0.5rem;
+	}
+	a:hover {
+		text-decoration: underline;
+		color: $red;
+	}
+	span:hover {
+		cursor: pointer;
+		text-decoration: underline;
+		color: $red;
+	}
+}
 .soc-net {
 	display: flex;
 	flex-direction: row;

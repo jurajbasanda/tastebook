@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Link, useHistory, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../actions/userAction'
 //componets
@@ -7,13 +8,24 @@ import Loader from '../components//Loader'
 import '../style/LoginScreen.scss'
 
 const LoginScreen = () => {
+	//Router Hooks
+	const { search } = useLocation()
+	const { push } = useHistory()
 	//State
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
+  //Redux State
 	const dispatch = useDispatch()
-
 	const userLogin = useSelector((state) => state.userLogin)
 	const { loading, error, userInfo } = userLogin
+
+	const redirect = search ? search.split('=')[1] : '/'
+
+	useEffect(() => {
+		if (userInfo) {
+			push(redirect)
+		}
+	}, [push, userInfo, redirect])
 
 	const submitHandler = (e) => {
 		e.preventDefault()

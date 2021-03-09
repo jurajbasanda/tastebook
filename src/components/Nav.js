@@ -1,14 +1,23 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '../actions/userAction'
+import { useHistory } from 'react-router-dom'
 //Style
 import '../style/nav.scss'
 //images
 import logo from '../images/tastyLogo.png'
 import SearchBox from './SearchBox'
 const Nav = () => {
+	//Router Hooks
+	const { push } = useHistory()
 	//States
 	const [Menu, setMenu] = useState('')
 	const [MenuCategory, setMenuCategory] = useState('')
+	//Redux State
+	const dispatch = useDispatch()
+	const userLogin = useSelector((state) => state.userLogin)
+	const { loading, error, userInfo } = userLogin
 	//Mobile Menu
 	const mobilMenu = () => {
 		Menu === '' ? setMenu(' open') : setMenu('')
@@ -26,6 +35,11 @@ const Nav = () => {
 	const mobilMenus = () => {
 		mobilMenu()
 		mobilMenuCategory()
+	}
+
+	const logoutHnadler = () => {
+		dispatch(logout())
+		push('/login')
 	}
 
 	return (
@@ -51,9 +65,20 @@ const Nav = () => {
 					</ul>
 				</div>
 				<div className='user-menu-group'>
-					<Link to='/login'>
-						<i className='fas fa-user'></i> Log In
-					</Link>
+					{userInfo ? (
+						<div className='account-menu'>
+							<Link to='/myaccount'>
+								<i className='fas fa-user'></i> My Account
+							</Link>{' '}
+							| <span onClick={logoutHnadler}> Log Out</span>
+						</div>
+					) : (
+						<div className='account-menu'>
+							<Link to='/login'>
+								<i className='fas fa-user'></i> Log In
+							</Link>
+						</div>
+					)}
 				</div>
 			</section>
 			<nav>

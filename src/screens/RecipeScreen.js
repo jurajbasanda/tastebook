@@ -31,9 +31,9 @@ const RecipeScreen = () => {
 				<Loader />
 			) : error ? (
 				<ErrorMessage messageErr={error} />
-			) : recipe.message ? (
+			) : recipe?.message ? (
 				<ErrorMessage message={recipe.message} />
-			) : (
+			) : recipe? (
 				<Fragment>
 					<section className='recipepage'>
 						<div className='get-back'>
@@ -102,7 +102,7 @@ const RecipeScreen = () => {
 						</div>
 					</section>
 				</Fragment>
-			)}
+			):null}
 		</Fragment>
 	)
 }

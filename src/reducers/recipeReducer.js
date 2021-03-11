@@ -12,18 +12,19 @@ function recipeListReducer(state = { recipes: [] }, action) {
 		case RECIPE_LIST_REQUEST:
 			return { loading: true, recipes: [], random: {} }
 		case RECIPE_LIST_SUCCESS:
-			const foods = action.payload
-			const ran = foods[Math.floor(Math.random() * foods.length)]
+			const allRecipes = action.payload
+			const randomRecipe =
+				allRecipes[Math.floor(Math.random() * allRecipes.length)]
 			return {
 				loading: false,
-				recipes: foods,
+				recipes: allRecipes,
 				random: {
-					title: ran?.title,
-					img: ran?.img[0],
-					_id: ran?._id,
-					hot: ran?.hot,
-					glutenFree: ran?.glutenFree,
-					vegeterian: ran?.vegeterian,
+					title: randomRecipe?.title,
+					img: randomRecipe?.img[0],
+					_id: randomRecipe?._id,
+					hot: randomRecipe?.hot,
+					glutenFree: randomRecipe?.glutenFree,
+					vegeterian: randomRecipe?.vegeterian,
 				},
 			}
 		case RECIPE_LIST_FAIL:
@@ -32,10 +33,10 @@ function recipeListReducer(state = { recipes: [] }, action) {
 			return state
 	}
 }
-function recipeDetailsReducer(state = { recipe: {} }, action) {
+function recipeDetailsReducer(state = { oneRecipe: {} }, action) {
 	switch (action.type) {
 		case RECIPE_DETAILS_REQUEST:
-			return { loading: true, recipe: {} }
+			return { loading: true, oneRecipe: {} }
 		case RECIPE_DETAILS_SUCCESS:
 			return {
 				loading: false,

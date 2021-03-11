@@ -17,7 +17,7 @@ const Nav = () => {
 	//Redux State
 	const dispatch = useDispatch()
 	const userLogin = useSelector((state) => state.userLogin)
-	const { loading, error, userInfo } = userLogin
+	const {userInfo } = userLogin
 	//Mobile Menu
 	const mobilMenu = () => {
 		Menu === '' ? setMenu(' open') : setMenu('')

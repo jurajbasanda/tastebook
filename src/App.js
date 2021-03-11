@@ -11,6 +11,7 @@ import Nav from './components/Nav'
 import Footer from './components/Footer'
 //Style
 import './style/App.scss'
+import SignUpScreen from './screens/SignUpScreen'
 
 function App() {
 	return (
@@ -35,6 +36,9 @@ function App() {
 					</Route>
 					<Route path='/submit-recipe'>
 						<SubmitRecipeScreen />
+					</Route>
+					<Route path='/register'>
+						<SignUpScreen />
 					</Route>
 					<Route path='/login'>
 						<LoginScreen />

@@ -30,7 +30,7 @@ const HomeScreen = () => {
 					{loading ? (
 						<Loader />
 					) : error ? (
-						<ErrorMessage message={error} />
+						<ErrorMessage messageErr={error} />
 					) : (
 						<Fragment>
 							<section className='homepage'>

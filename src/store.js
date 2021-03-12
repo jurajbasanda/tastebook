@@ -4,7 +4,14 @@ import {
 	recipeListReducer,
 	recipeDetailsReducer,
 } from './reducers/recipeReducer'
-import { userLoginReducer,userRegisterReducer } from './reducers/userReducer'
+import {
+	userLoginReducer,
+	userRegisterReducer,
+	userDetailsReducer,
+	userUpdateReducer,
+	userListReducer,
+	userUpdateProfileReducer,
+} from './reducers/userReducer'
 
 const loginFromStorage = localStorage.getItem('userInfo')
 	? JSON.parse(localStorage.getItem('userInfo'))
@@ -16,7 +23,10 @@ const reducer = combineReducers({
 	recipeDetails: recipeDetailsReducer,
 	userLogin: userLoginReducer,
 	userRegister: userRegisterReducer,
-
+	userDetails: userDetailsReducer,
+	userUpdateProfile: userUpdateProfileReducer,
+	userUpdate: userUpdateReducer,
+	userList: userListReducer,
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

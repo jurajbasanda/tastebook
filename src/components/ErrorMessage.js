@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const errorStyle = {
 	display: 'flex',
@@ -7,7 +8,7 @@ const errorStyle = {
 	flexDirection: 'column',
 	textAlign: 'center',
 	minHeight: '60vh',
-  fontSize:'1.2rem'
+	fontSize: '1.2rem',
 }
 const ErrorMessage = ({ messageErr, message }) => {
 	return message ? (
@@ -28,4 +29,9 @@ const ErrorMessage = ({ messageErr, message }) => {
 	) : null
 }
 
+
+ErrorMessage.propTypes = {
+	message: PropTypes.string,
+	messageErr: PropTypes.string
+  }
 export default ErrorMessage

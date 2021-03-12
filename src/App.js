@@ -12,6 +12,7 @@ import Footer from './components/Footer'
 //Style
 import './style/App.scss'
 import SignUpScreen from './screens/SignUpScreen'
+import MyAccountScreen from './screens/MyAccountScreen'
 
 function App() {
 	return (
@@ -36,6 +37,9 @@ function App() {
 					</Route>
 					<Route path='/submit-recipe'>
 						<SubmitRecipeScreen />
+					</Route>
+					<Route path='/myaccount'>
+						<MyAccountScreen />
 					</Route>
 					<Route path='/register'>
 						<SignUpScreen />

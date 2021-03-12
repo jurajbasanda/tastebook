@@ -64,6 +64,7 @@ img {
 .first-bg {
 	height: 100%;
 	width: 100%;
+	min-height: 10rem;
 	background-repeat: no-repeat;
 	background-position: left;
 	background-size: 70%;
@@ -179,11 +180,12 @@ img {
 //--------------------------------------------670px-------------------------
 @media screen and (max-width: 670px) {
 	.homepage {
-		min-height: 50vh;
+		min-height: 40vh;
 		grid-template-columns: 1fr;
 		grid-template-rows: 1fr 5rem;
 		justify-items: center;
 		align-items: center;
+		padding-top:0;
 	}
 	.order2 {
 		order: 2;
@@ -191,6 +193,7 @@ img {
 	.first-bg {
 		order: 1;
 		background-size: 100%;
+		margin-bottom: 1rem;
 	}
 	.recipe {
 		padding: 0.5rem;

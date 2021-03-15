@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserDetails, updateUserProfile } from '../actions/userAction'
+//Style
+import '../style/MyAcountScreen.scss'
 
 const MyAccountScreen = () => {
 	//Router Hooks
@@ -51,8 +53,35 @@ const MyAccountScreen = () => {
 			)
 		}
 	}
-	return <div>
-    <h1>Welcome {user?.firstName}</h1></div>
+	return (
+		<section className='myaccount-page'>
+			<h1>Profile information</h1>
+			<table className='profile-table'>
+				<tbody>
+					<tr>
+						<td>First name: </td>
+						<td>{user.firstName}</td>
+					</tr>
+					<tr>
+						<td>Last name: </td>
+						<td>{user.lastName}</td>
+					</tr>
+					<tr>
+						<td>E-mail adress: </td>
+						<td>{user.email}</td>
+					</tr>
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+					<tr>
+						<td> </td>
+						<td> </td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	)
 }
 
 export default MyAccountScreen

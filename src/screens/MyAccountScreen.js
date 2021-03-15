@@ -24,7 +24,7 @@ const MyAccountScreen = () => {
 	const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
 	const { success } = userUpdateProfile
 	useEffect(() => {
-		if (!user) {
+		if (userInfo === null) {
 			push('/login')
 		} else {
 			if (!user || !user.firstName) {
@@ -55,31 +55,72 @@ const MyAccountScreen = () => {
 	}
 	return (
 		<section className='myaccount-page'>
-			<h1>Profile information</h1>
-			<table className='profile-table'>
-				<tbody>
-					<tr>
-						<td>First name: </td>
-						<td>{user.firstName}</td>
-					</tr>
-					<tr>
-						<td>Last name: </td>
-						<td>{user.lastName}</td>
-					</tr>
-					<tr>
-						<td>E-mail adress: </td>
-						<td>{user.email}</td>
-					</tr>
-					<tr>
-						<td> </td>
-						<td> </td>
-					</tr>
-					<tr>
-						<td> </td>
-						<td> </td>
-					</tr>
-				</tbody>
-			</table>
+			<div className='profile-group'>
+				{' '}
+				<h1>Profile information</h1>
+				<table className='profile-table'>
+					<tbody>
+						<tr>
+							<td>User ID: </td>
+							<td>{user._id}</td>
+						</tr>
+						<tr>
+							<td>First name: </td>
+							<td>{user.firstName}</td>
+						</tr>
+						<tr>
+							<td>Last name: </td>
+							<td>{user.lastName}</td>
+						</tr>
+						<tr>
+							<td>E-mail adress: </td>
+							<td>{user.email}</td>
+						</tr>
+					</tbody>
+				</table>
+				<div className='edit-btn-group'>
+					<button className='edit-btn'>Edit or change password</button>
+				</div>
+			</div>
+			<div className='your-recipes-group'>
+				<h1>Your recipes</h1>
+				<table className='profile-table'>
+					<thead>
+						<tr>
+							<td>Date</td>
+							<td>Title</td>
+							<td>Keywords</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>First name: </td>
+							<td>{user.firstName}</td>
+							<td>Keywords</td>
+							<td>
+								<button className='edit-btn'>Edit / Delete</button>
+							</td>
+						</tr>
+						<tr>
+							<td>Last name: </td>
+							<td>{user.lastName}</td>
+							<td>Keywords</td>
+							<td>
+								<button className='edit-btn'>Edit / Delete</button>
+							</td>
+						</tr>
+						<tr>
+							<td>E-mail adress: </td>
+							<td>{user.email}</td>
+							<td>Keywords</td>
+							<td>
+								<button className='edit-btn'>Edit / Delete</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</section>
 	)
 }

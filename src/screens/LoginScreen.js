@@ -66,7 +66,7 @@ const LoginScreen = () => {
 							to={redirect ? `/register?redirect=${redirect}` : `/register`}
 							style={{ color: '#284a6c' }}
 						>
-							Sign Up
+							Sign up
 						</Link>
 					</div>
 				</Fragment>

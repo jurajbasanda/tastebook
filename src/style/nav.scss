@@ -48,7 +48,7 @@ nav {
 	button {
 		background-color: white;
 		border: none;
-		font-size: 1.4rem;
+		font-size: 1.2rem;
 	}
 }
 .logo {
@@ -122,6 +122,9 @@ nav {
 }
 .flex570 {
 	display: none;
+}
+.category-btn{
+	all:inherit;
 }
 @media screen and (max-width: 800px) {
 	//------------------------------------800px--------------------

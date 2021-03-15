@@ -17,7 +17,7 @@ const Nav = () => {
 	//Redux State
 	const dispatch = useDispatch()
 	const userLogin = useSelector((state) => state.userLogin)
-	const {userInfo } = userLogin
+	const { userInfo } = userLogin
 	//Mobile Menu
 	const mobilMenu = () => {
 		Menu === '' ? setMenu(' open') : setMenu('')
@@ -69,9 +69,9 @@ const Nav = () => {
 						<div className='account-menu'>
 							<Link to='/myaccount'>
 								<i className='fas fa-user'></i>
-								<span>My Account</span>
+								<span>My account</span>
 							</Link>{' '}
-							| <span onClick={logoutHnadler}>Log Out</span>
+							| <span onClick={logoutHnadler}>Log out</span>
 						</div>
 					) : (
 						<div className='account-menu'>
@@ -126,15 +126,15 @@ const Nav = () => {
 					</ul>
 					<ul className={`mobil ${Menu}`}>
 						<li>
-							<Link
-								to='/'
+							<button
+								className='category-btn'
 								rel='next'
 								aria-label='category'
 								onClick={mobilMenuCategory}
 								onKeyDown={mobilMenuCategory}
 							>
 								category
-							</Link>
+							</button>
 						</li>
 						<li>
 							<Link

@@ -3,6 +3,7 @@ import thunk from 'redux-thunk'
 import {
 	recipeListReducer,
 	recipeDetailsReducer,
+	recipeUserReducer,
 } from './reducers/recipeReducer'
 import {
 	userLoginReducer,
@@ -21,6 +22,7 @@ const initialState = { userLogin: { userInfo: loginFromStorage } }
 const reducer = combineReducers({
 	recipeList: recipeListReducer,
 	recipeDetails: recipeDetailsReducer,
+	recipeUser: recipeUserReducer,
 	userLogin: userLoginReducer,
 	userRegister: userRegisterReducer,
 	userDetails: userDetailsReducer,

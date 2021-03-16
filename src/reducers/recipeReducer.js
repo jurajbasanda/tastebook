@@ -5,6 +5,9 @@ import {
 	RECIPE_DETAILS_REQUEST,
 	RECIPE_DETAILS_SUCCESS,
 	RECIPE_DETAILS_FAIL,
+	RECIPE_USER_REQUEST,
+	RECIPE_USER_SUCCESS,
+	RECIPE_USER_FAIL,
 } from '../constants/recipeConstants'
 
 function recipeListReducer(state = { recipes: [] }, action) {
@@ -49,4 +52,17 @@ function recipeDetailsReducer(state = { oneRecipe: {} }, action) {
 	}
 }
 
-export { recipeListReducer, recipeDetailsReducer }
+function recipeUserReducer(state = { allUserRecipes: [] }, action) {
+	switch (action.type) {
+		case RECIPE_USER_REQUEST:
+			return { loading: true, allUserRecipes: [] }
+		case RECIPE_USER_SUCCESS:
+			return { loading: false, allUserRecipes: action.payload }
+		case RECIPE_USER_FAIL:
+			return { loading: false, error: action.payload }
+		default:
+			return state
+	}
+}
+
+export { recipeListReducer, recipeDetailsReducer, recipeUserReducer }

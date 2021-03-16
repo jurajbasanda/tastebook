@@ -5,10 +5,13 @@ import {
 	RECIPE_DETAILS_REQUEST,
 	RECIPE_DETAILS_SUCCESS,
 	RECIPE_DETAILS_FAIL,
+	RECIPE_USER_SUCCESS,
+	RECIPE_USER_REQUEST,
+	RECIPE_USER_FAIL
 } from '../constants/recipeConstants'
 import axios from 'axios'
 
-const listRecipe = (keyword='') => async (dispatch) => {
+const listRecipe = (keyword = '') => async (dispatch) => {
 	try {
 		dispatch({ type: RECIPE_LIST_REQUEST })
 		const { data } = await axios.get(`/api/recipes?keyword=${keyword}`)
@@ -24,6 +27,15 @@ const recipeDetail = (recipeId) => async (dispatch) => {
 		dispatch({ type: RECIPE_DETAILS_SUCCESS, payload: data })
 	} catch (error) {
 		dispatch({ type: RECIPE_DETAILS_FAIL, payload: error.message })
+	}
+}
+const recipeUser = (_id) => async (dispatch) => {
+	try {
+		dispatch({ type: RECIPE_USER_REQUEST, payload: _id })
+		const { data } = await axios.get(`/api/recipes/user/all`)
+		dispatch({ type: RECIPE_USER_SUCCESS, payload: data })
+	} catch (error) {
+		dispatch({ type: RECIPE_USER_FAIL, payload: error.message })
 	}
 }
 

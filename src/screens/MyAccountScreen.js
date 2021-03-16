@@ -79,7 +79,7 @@ const MyAccountScreen = () => {
 					</tbody>
 				</table>
 				<div className='edit-btn-group'>
-					<button className='edit-btn'>Edit or change password</button>
+					<button className='red-btn'>Edit or change password</button>
 				</div>
 			</div>
 			<div className='your-recipes-group'>
@@ -87,10 +87,10 @@ const MyAccountScreen = () => {
 				<table className='profile-table'>
 					<thead>
 						<tr>
-							<td>Date</td>
-							<td>Title</td>
-							<td>Keywords</td>
-							<td></td>
+							<th>Date</th>
+							<th>Title</th>
+							<th>Keywords</th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -99,7 +99,7 @@ const MyAccountScreen = () => {
 							<td>{user.firstName}</td>
 							<td>Keywords</td>
 							<td>
-								<button className='edit-btn'>Edit / Delete</button>
+								<button className='red-btn'>Edit / Delete</button>
 							</td>
 						</tr>
 						<tr>
@@ -107,7 +107,7 @@ const MyAccountScreen = () => {
 							<td>{user.lastName}</td>
 							<td>Keywords</td>
 							<td>
-								<button className='edit-btn'>Edit / Delete</button>
+								<button className='red-btn'>Edit / Delete</button>
 							</td>
 						</tr>
 						<tr>
@@ -115,7 +115,7 @@ const MyAccountScreen = () => {
 							<td>{user.email}</td>
 							<td>Keywords</td>
 							<td>
-								<button className='edit-btn'>Edit / Delete</button>
+								<button className='red-btn'>Edit / Delete</button>
 							</td>
 						</tr>
 					</tbody>

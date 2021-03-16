@@ -25,11 +25,6 @@ footer {
 		margin-right: 2rem;
 		font-weight: bold;
 	}
-	a{margin: 0.5rem;
-		margin-right: 2rem;
-		color:white;
-		padding: 0.4rem;
-	background-color: $red;}
 }
 .newsletter-footer {
 	background-color: $red;
@@ -45,6 +40,7 @@ footer {
 		display: flex;
 		flex-direction: column;
 		justify-items: center;
+		justify-content: center;
 		align-content: center;
 		align-items: center;
 		h3 {
@@ -52,6 +48,8 @@ footer {
 			margin: 0.5rem;
 		}
 		div {
+			display: flex;
+		
 			margin-top: 0.5rem;
 			input {
 				font-size: 1.1rem;

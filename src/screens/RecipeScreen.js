@@ -25,6 +25,7 @@ const RecipeScreen = () => {
 		dispatch(recipeDetail(id))
 	}, [id, dispatch])
 
+	
 	return (
 		<Fragment>
 			{loading ? (

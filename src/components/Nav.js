@@ -48,18 +48,22 @@ const Nav = () => {
 				<div className='soc-net'>
 					<ul>
 						<li>
-							<a href='/'>
-								<i className='fab fa-facebook-f'></i>
+							<a href='/fb'>
+								<i
+									className='fab fa-facebook-f'
+									role='button'
+									title='facebook'
+								></i>
 							</a>
 						</li>
 						<li>
-							<a href='/'>
-								<i className='fab fa-instagram'></i>
+							<a href='/insta'>
+								<i className='fab fa-instagram' title='instagram'></i>
 							</a>
 						</li>
 						<li>
-							<a href='/'>
-								<i className='fab fa-twitter'></i>
+							<a href='/twitter'>
+								<i className='fab fa-twitter' title='twitter'></i>
 							</a>
 						</li>
 					</ul>
@@ -76,9 +80,10 @@ const Nav = () => {
 					) : (
 						<div className='account-menu'>
 							<Link to='/login'>
-								<i className='fas fa-user'></i>
+								<i className='fas fa-user' title='user'></i>
 								<span>Log In</span>
 							</Link>
+							role='button'
 						</div>
 					)}
 				</div>
@@ -87,7 +92,7 @@ const Nav = () => {
 				<div className='middlebar'>
 					<div className='logo' onClick={closeMenus} onKeyDown={closeMenus}>
 						<Link to='/'>
-							<img src={logo} alt='coriander' srcSet='' />
+							<img src={logo} alt='tastebook-logo' srcSet='' />
 							<span>Tastebook</span>
 						</Link>
 					</div>
@@ -104,7 +109,7 @@ const Nav = () => {
 						className='burger '
 					>
 						<button>
-							<i className='fas fa-bars' />
+							<i className='fas fa-bars' title='menu' />
 						</button>
 					</div>
 					<ul className='menu'>
@@ -127,6 +132,7 @@ const Nav = () => {
 					<ul className={`mobil ${Menu}`}>
 						<li>
 							<button
+								title='category'
 								className='category-btn'
 								rel='next'
 								aria-label='category'
@@ -163,6 +169,7 @@ const Nav = () => {
 								<i
 									style={{ color: 'black', fontSize: '1.5rem' }}
 									className='far fa-window-close'
+									title='close'
 								></i>
 							</button>
 						</li>
@@ -206,6 +213,7 @@ const Nav = () => {
 								<i
 									style={{ color: 'black', fontSize: '1.5rem' }}
 									className='far fa-window-close'
+									title='close'
 								></i>
 							</button>
 						</li>

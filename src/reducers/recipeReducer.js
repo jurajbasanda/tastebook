@@ -52,7 +52,7 @@ function recipeDetailsReducer(state = { oneRecipe: {} }, action) {
 	}
 }
 
-function recipeUserReducer(state = { allUserRecipes: [] }, action) {
+function recipeUserReducer(state = { allUserRecipes:[]}, action) {
 	switch (action.type) {
 		case RECIPE_USER_REQUEST:
 			return { loading: true, allUserRecipes: [] }

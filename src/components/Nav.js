@@ -83,7 +83,6 @@ const Nav = () => {
 								<i className='fas fa-user' title='user'></i>
 								<span>Log In</span>
 							</Link>
-							role='button'
 						</div>
 					)}
 				</div>

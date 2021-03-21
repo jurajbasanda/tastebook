@@ -7,7 +7,7 @@ import {
 	RECIPE_DETAILS_FAIL,
 	RECIPE_USER_SUCCESS,
 	RECIPE_USER_REQUEST,
-	RECIPE_USER_FAIL
+	RECIPE_USER_FAIL,
 } from '../constants/recipeConstants'
 import axios from 'axios'
 
@@ -29,14 +29,19 @@ const recipeDetail = (recipeId) => async (dispatch) => {
 		dispatch({ type: RECIPE_DETAILS_FAIL, payload: error.message })
 	}
 }
-const recipeUser = (_id) => async (dispatch) => {
+const getRecipeUser = (userId) => async (dispatch) => {
 	try {
-		dispatch({ type: RECIPE_USER_REQUEST, payload: _id })
-		const { data } = await axios.get(`/api/recipes/user/all`)
+		const config = {
+			headers: {
+				'Content-Type': 'application/json',
+				userId: `${userId}`,			},
+		}
+		dispatch({ type: RECIPE_USER_REQUEST, payload: userId })
+		const { data } = await axios.get(`/api/recipes/user/all`, config)
 		dispatch({ type: RECIPE_USER_SUCCESS, payload: data })
 	} catch (error) {
 		dispatch({ type: RECIPE_USER_FAIL, payload: error.message })
 	}
 }
 
-export { listRecipe, recipeDetail }
+export { listRecipe, recipeDetail, getRecipeUser }

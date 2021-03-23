@@ -1,7 +1,8 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import { useHistory, useLocation } from 'react-router-dom'
+import { useHistory, useLocation, Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { register } from '../actions/userAction'
+
 //componets
 import Loader from '../components/Loader'
 //Style
@@ -17,15 +18,14 @@ const SignUpScreen = () => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const [confirmPassword, setConfirmPassword] = useState('')
+	const [terms, setTemrms] = useState(false)
 	const [message, setMessage] = useState(null)
-
+	//*Redux State
 	const dispatch = useDispatch()
-
 	const userRegister = useSelector((state) => state.userRegister)
 	const { loading, error, userInfo } = userRegister
 
 	const redirect = search ? search.split('=')[1] : '/'
-
 	useEffect(() => {
 		if (userInfo) {
 			push(redirect)
@@ -34,10 +34,10 @@ const SignUpScreen = () => {
 
 	const submitHandler = (e) => {
 		e.preventDefault()
-		if (password === confirmPassword) {
+		if (password === confirmPassword && terms) {
 			dispatch(register(firstName, lastName, email, password))
 		} else {
-			setMessage('Password do not match')
+			setMessage('Password do not match / please confirm Term & Conditions')
 		}
 	}
 	return (
@@ -47,7 +47,14 @@ const SignUpScreen = () => {
 			) : error ? (
 				<h1>{error}</h1>
 			) : message ? (
-				<h1>{message}</h1>
+				<Fragment>
+					<div className='get-back'>
+						<Link to='/'>
+							<i className='fas fa-chevron-left'></i> Go back
+						</Link>
+					</div>{' '}
+					<h1>{message}</h1>
+				</Fragment>
 			) : (
 				<Fragment>
 					<div className='login-bg'></div>
@@ -98,6 +105,16 @@ const SignUpScreen = () => {
 							onChange={(e) => setConfirmPassword(e.target.value)}
 							required
 						/>
+						<div className='terms-group'>
+							<label htmlFor='terms'>Terms & Conditions</label>
+							<input
+								type='checkbox'
+								name='terms'
+								id='terms'
+								value={terms}
+								onChange={(e) => setTemrms(e.target.value)}
+							/>
+						</div>
 						<button>Submit</button>
 					</form>
 				</Fragment>

@@ -14,6 +14,7 @@ const Nav = () => {
 	//States
 	const [Menu, setMenu] = useState('')
 	const [MenuCategory, setMenuCategory] = useState('')
+	const [MenuCategoryDesktop, setMenuCategoryDesktop] = useState('')
 	//Redux State
 	const dispatch = useDispatch()
 	const userLogin = useSelector((state) => state.userLogin)
@@ -31,7 +32,11 @@ const Nav = () => {
 	const mobilMenuCategory = () => {
 		MenuCategory === '' ? setMenuCategory(' open') : setMenuCategory('')
 	}
-	//Both
+	//Desktop Category Menu
+	const menuCategory = () => {
+		MenuCategoryDesktop === '' ? setMenuCategoryDesktop(' open-desktop') : setMenuCategoryDesktop('')
+	}
+	//all
 	const mobilMenus = () => {
 		mobilMenu()
 		mobilMenuCategory()
@@ -113,9 +118,14 @@ const Nav = () => {
 					</div>
 					<ul className='menu'>
 						<li>
-							<Link to='/' rel='category' aria-label='category'>
+							<button
+								onClick={menuCategory}
+								onKeyDown={menuCategory}
+								className='category-btn'
+								aria-label='category'
+							>
 								category
-							</Link>
+							</button>
 						</li>
 						<li>
 							<Link to='/' rel='about' aria-label='about'>
@@ -127,6 +137,51 @@ const Nav = () => {
 								contact
 							</Link>
 						</li>
+					</ul>
+					<ul className={`fix ${MenuCategoryDesktop}`}>
+						<li>
+							{' '}
+							<button onClick={menuCategory} onKeyDown={menuCategory}>
+								<i
+									title='close'
+									style={{ color: 'black', fontSize: '1.5rem' }}
+									className='fas fa-chevron-right'
+								></i>
+							</button>
+						</li>
+						<li>
+							<Link
+								to='/search/beef'
+								rel='next'
+								aria-label='pork'
+								onClick={menuCategory}
+								onKeyDown={menuCategory}
+							>
+								#beef
+							</Link>
+						</li>
+						<li>
+							<Link
+								to='/search/chicken'
+								rel='next'
+								aria-label='beef'
+								onClick={menuCategory}
+								onKeyDown={menuCategory}
+							>
+								#chicken
+							</Link>
+						</li>
+						<li>
+							<Link
+								to='/search/vegetarian'
+								rel='next'
+								aria-label='chicken'
+								onClick={menuCategory}
+								onKeyDown={menuCategory}
+							>
+								#vegeterian
+							</Link>
+						</li>{' '}
 					</ul>
 					<ul className={`mobil ${Menu}`}>
 						<li>
@@ -176,35 +231,35 @@ const Nav = () => {
 					<ul className={`mobil ${MenuCategory}`}>
 						<li>
 							<Link
-								to='/'
+								to='/search/beef'
 								rel='next'
 								aria-label='pork'
 								onClick={mobilMenus}
 								onKeyDown={mobilMenus}
 							>
-								pork
+								#beef
 							</Link>
 						</li>
 						<li>
 							<Link
-								to='/beef'
+								to='/search/chicken'
 								rel='next'
 								aria-label='beef'
 								onClick={mobilMenus}
 								onKeyDown={mobilMenus}
 							>
-								beef
+								#chicken
 							</Link>
 						</li>
 						<li>
 							<Link
-								to='/chicken'
+								to='/search/vegetarian'
 								rel='next'
 								aria-label='chicken'
 								onClick={mobilMenus}
 								onKeyDown={mobilMenus}
 							>
-								chicken
+								#vegeterian
 							</Link>
 						</li>
 						<li>

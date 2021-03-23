@@ -6,7 +6,7 @@ import { listRecipe } from '../actions/recipeActions'
 import '../style/HomeScreen.scss'
 //Components
 import ErrorMessage from '../components/ErrorMessage'
-import Popular from '../components/Popular'
+import Recipes from '../components/Recipes'
 import Loader from '../components/Loader'
 //Images
 //Images
@@ -16,6 +16,7 @@ import glutenFree from '../images/gluten-free.png'
 
 const HomeScreen = () => {
 	const { keyword } = useParams()
+	//*Redux State
 	const dispatch = useDispatch()
 	const recipeList = useSelector((state) => state.recipeList)
 	const { loading, error, recipes, random } = recipeList
@@ -67,7 +68,10 @@ const HomeScreen = () => {
 									</Fragment>
 								) : null}
 							</section>
-							<Popular food={recipes} />
+							<section className='recipe'>
+								<h2>Popular</h2>
+								<Recipes food={recipes} />
+							</section>
 							{recipes?.length > 8 ? (
 								<div className='show-more-group'>
 									<button className='show-more-btn'>Show more</button>
@@ -83,7 +87,9 @@ const HomeScreen = () => {
 					) : error ? (
 						<ErrorMessage message={error} />
 					) : (
-						<Popular food={recipes} />
+						<section className='recipe'>
+							<Recipes food={recipes} />
+						</section>
 					)}
 				</Fragment>
 			)}

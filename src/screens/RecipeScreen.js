@@ -16,7 +16,7 @@ import time from '../images/time.png'
 const RecipeScreen = () => {
 	//Router hooks
 	const { id } = useParams()
-	//Use redux
+	//*Redux State
 	const dispatch = useDispatch()
 	const recipeDetails = useSelector((state) => state.recipeDetails)
 	const { loading, error, recipe } = recipeDetails
@@ -25,7 +25,6 @@ const RecipeScreen = () => {
 		dispatch(recipeDetail(id))
 	}, [id, dispatch])
 
-	
 	return (
 		<Fragment>
 			{loading ? (
@@ -34,7 +33,7 @@ const RecipeScreen = () => {
 				<ErrorMessage messageErr={error} />
 			) : recipe?.message ? (
 				<ErrorMessage message={recipe.message} />
-			) : recipe? (
+			) : recipe ? (
 				<Fragment>
 					<section className='recipepage'>
 						<div className='get-back'>
@@ -67,43 +66,44 @@ const RecipeScreen = () => {
 							</ul>
 						</div>
 						<div className='dsc-group'>
+							<div className='dsc-ingredients-group'>
+								<h2>Ingredients</h2>
+								{recipe.serving ? (
+									<h3>
+										For {recipe.serving}{' '}
+										{recipe.servings > 1 ? (
+											<span>servings</span>
+										) : (
+											<span>serving</span>
+										)}
+									</h3>
+								) : null}
+								<ul>
+									{recipe?.ingredients?.map((step, i) => (
+										<li key={i}>{step}</li>
+									))}
+								</ul>
+							</div>
 							<div className='dsc-lists'>
-								<div className='dsc-ingredients-group'>
-									<h2>Ingredients</h2>
-									{recipe.serving ? (
-										<h3>
-											For {recipe.serving}{' '}
-											{recipe.servings > 1 ? (
-												<span>servings</span>
-											) : (
-												<span>serving</span>
-											)}
-										</h3>
-									) : null}
-									<ul>
-										{recipe?.description?.map((step, i) => (
-											<li key={i}>{step}</li>
-										))}
-									</ul>
-								</div>
-								<div className='dsc-method-group'>
-									<h2>Method</h2>
-									<ol className='dsc-ol'>
-										{recipe?.description?.map((step, i) => (
-											<li key={i}>{step}</li>
-										))}
-									</ol>
+								<div className='dsc-imgs-group'>
+									{recipe?.img?.map((item, i) => (
+										<img key={i} src={item} alt={recipe.title} />
+									))}
 								</div>
 							</div>
-							<div className='dsc-imgs-group'>
-								{recipe?.img?.map((item, i) => (
-									<img key={i} src={item} alt={recipe.title} />
+							
+						</div>
+						<div className='dsc-method-group'>
+							<h2>Method</h2>
+							<ol className='dsc-ol'>
+								{recipe?.description?.map((step, i) => (
+									<li key={i}>{step}</li>
 								))}
-							</div>
+							</ol>
 						</div>
 					</section>
 				</Fragment>
-			):null}
+			) : null}
 		</Fragment>
 	)
 }

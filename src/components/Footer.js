@@ -10,7 +10,7 @@ const Footer = () => {
 				<h3>
 					Have a recipe of your own <br /> to share ?
 				</h3>
-				<Link to='/submit-recipe' className='red-btn'>
+				<Link to='/register' className='red-btn'>
 					Submit your recipe
 				</Link>
 			</section>

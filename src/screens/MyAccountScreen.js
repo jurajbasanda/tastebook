@@ -20,7 +20,7 @@ const MyAccountScreen = () => {
 	const [confirmPassword, setConfirmPassword] = useState('')
 	const [userId, setUserId] = useState('')
 	const [message, setMessage] = useState(null)
-
+	//*Redux State
 	const dispatch = useDispatch()
 	const userDetails = useSelector((state) => state.userDetails)
 	const { loading, error, user } = userDetails
@@ -42,19 +42,22 @@ const MyAccountScreen = () => {
 	}
 
 	useEffect(() => {
-		if (!user) {
+		if (userDetails?.error) {
 			push('/login')
 		} else {
-			if (user || user.firstName && user._id) {
+			if (!user || !user.name) {
 				dispatch(getUserDetails('profile'))
-				dispatch(getRecipeUser(user?._id))
 			} else {
-				setFirstName(user.firstName)
-				setLastName(user.lastName)
-				setEmail(user.email)
+				setFirstName(user?.firstName)
+				setLastName(user?.lastName)
+				setEmail(user?.email)
 			}
 		}
-	}, [user._id])
+	}, [dispatch])
+
+	useEffect(() => {
+		dispatch(getRecipeUser(user?._id))
+	}, [user])
 
 	const submitHandler = (e) => {
 		e.preventDefault()

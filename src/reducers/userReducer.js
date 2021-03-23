@@ -23,10 +23,10 @@ import {
 	USER_UPDATE_FAIL,
 	USER_UPDATE_SUCCESS,
 	USER_UPDATE_REQUEST,
-	USER_UPDATE_RESET
+	USER_UPDATE_RESET,
 } from '../constants/userConstants'
 
-export const userLoginReducer = (state = {}, action) => {
+export const userLoginReducer = (state = { userInfo: {} }, action) => {
 	switch (action.type) {
 		case USER_LOGIN_REQUEST:
 			return { loading: true }
@@ -110,7 +110,7 @@ export const userDeleteReducer = (state = {}, action) => {
 	}
 }
 
-export const userUpdateReducer = (state = { }, action) => {
+export const userUpdateReducer = (state = {}, action) => {
 	switch (action.type) {
 		case USER_UPDATE_REQUEST:
 			return { loading: true }

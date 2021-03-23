@@ -1,7 +1,7 @@
 @use './abstracts' as *;
-.login-bg{
+.login-bg {
 	background-image: url('../images/cooking-table.jpg');
-	background-position:  center;
+	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
 	width: 100%;
@@ -25,15 +25,25 @@
 		label {
 			margin-top: 0.8rem;
 			margin-bottom: 0.2rem;
-            font-size: 1rem;
-
+			font-size: 1rem;
 		}
 		button {
 			margin-top: 1rem;
-            font-size: 1rem;
-            padding: 0.2rem;
+			font-size: 1rem;
+			padding: 0.2rem;
 		}
-        input{font-size: 1rem;
-                padding: 0.2rem;}
+		input {
+			font-size: 1rem;
+			padding: 0.2rem;
+		}
+	}
+}
+.terms-group {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	input {
+		margin-left: 0.5rem;
+		margin-top: 0.5rem;
 	}
 }

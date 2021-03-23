@@ -3,7 +3,7 @@
 .recipepage {
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 0.2fr 1fr;
+	grid-template-rows: 0.1fr 1fr;
 	justify-content: center;
 	align-items: flex-start;
 	padding: 1rem 12rem 1rem 12rem;
@@ -52,13 +52,15 @@
 .dsc-method-group {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	margin-top: 1rem;
 	margin-bottom: 5rem;
 	li {
 		margin: 1rem 0 0 0;
 	}
 	ul {
-		list-style: inside;
+		list-style: outside;
+		//line-height: 1.5rem;
 	}
 	ol {
 		list-style: none;
@@ -66,7 +68,6 @@
 		margin-left: 4.4rem;
 
 		li {
-			max-width: 10rem;
 			counter-increment: tabular-numbers;
 			font-variant: tabular-numbers;
 		}

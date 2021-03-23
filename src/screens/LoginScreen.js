@@ -39,7 +39,9 @@ const LoginScreen = () => {
 				<h1>{error}</h1>
 			) : (
 				<Fragment>
+				
 					<div className='login-bg'></div>
+					
 					<h1>Log In</h1>
 					<form onSubmit={submitHandler}>
 						<label>Email</label>

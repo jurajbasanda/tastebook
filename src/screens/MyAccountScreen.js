@@ -32,7 +32,7 @@ const MyAccountScreen = () => {
 	const { allUserRecipes } = recipeUser
 
 	// Date format
-	const dataFormat = (recipeDate) => {
+	const dateFormat = (recipeDate) => {
 		const dateObj = new Date(recipeDate)
 		const month = dateObj.getMonth() + 1
 		const day = dateObj.getDate()
@@ -129,7 +129,7 @@ const MyAccountScreen = () => {
 						<tbody>
 							{allUserRecipes?.map((recipe) => (
 								<tr key={recipe._id}>
-									<td>{dataFormat(recipe.date)} </td>
+									<td>{dateFormat(recipe.date)} </td>
 									<td>{recipe.title}</td>
 									<td>{recipe.keywords}</td>
 									<td>{recipe.userId}</td>

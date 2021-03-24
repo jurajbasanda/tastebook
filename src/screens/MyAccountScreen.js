@@ -9,6 +9,8 @@ import '../style/MyAcountScreen.scss'
 import Loader from '../components/Loader'
 import ErrorMessage from '../components/ErrorMessage'
 import NewRecipe from '../components/NewRecipe'
+import ProfileInfo from '../components/ProfileInfo'
+import UserRecipeList from '../components/UserRecipeList'
 
 const MyAccountScreen = () => {
 	//*Router Hooks
@@ -42,14 +44,7 @@ const MyAccountScreen = () => {
 	const recipeUser = useSelector((state) => state.recipeUser)
 	const { allUserRecipes } = recipeUser
 
-	//Date format
-	const dateFormat = (recipeDate) => {
-		const dateObj = new Date(recipeDate)
-		const month = dateObj.getMonth() + 1
-		const day = dateObj.getDate()
-		const year = dateObj.getFullYear()
-		return `${day}/${month}/${year}`
-	}
+	
 	//Open and close New Recipe Form
 	const openNewRecipeForm = () => {
 		newRecipeForm === ''
@@ -75,22 +70,7 @@ const MyAccountScreen = () => {
 		dispatch(getRecipeUser(user?._id))
 	}, [user])
 
-	// const submitHandler = (e) => {
-	// 	e.preventDefault()
-	// 	if (password !== confirmPassword) {
-	// 		setMessage('Passwords do not match')
-	// 	} else {
-	// 		dispatch(
-	// 			updateUserProfile({
-	// 				id: user._id,
-	// 				firstName,
-	// 				lastName,
-	// 				email,
-	// 				password,
-	// 			})
-	// 		)
-	// 	}
-	// }
+	
 	return (
 		<section className='myaccount-page'>
 			<div className='profile-group'>
@@ -101,26 +81,7 @@ const MyAccountScreen = () => {
 				) : userDetails?.error ? (
 					<ErrorMessage messageErr={userDetails.error} />
 				) : user ? (
-					<table className='profile-table'>
-						<tbody>
-							<tr>
-								<td>User ID: </td>
-								<td>{user._id}</td>
-							</tr>
-							<tr>
-								<td>First name: </td>
-								<td>{user.firstName}</td>
-							</tr>
-							<tr>
-								<td>Last name: </td>
-								<td>{user.lastName}</td>
-							</tr>
-							<tr>
-								<td>E-mail adress: </td>
-								<td>{user.email}</td>
-							</tr>
-						</tbody>
-					</table>
+					<ProfileInfo user={user} />
 				) : null}
 				<div className='edit-btn-group'>
 					<button className='red-btn'>Edit or change password</button>
@@ -134,28 +95,7 @@ const MyAccountScreen = () => {
 					<p>{recipeUser.error}</p>
 				) : allUserRecipes ? (
 					<Fragment>
-						<table className='recipe-table'>
-							<thead>
-								<tr>
-									<th>Date</th>
-									<th>Title</th>
-									<th>Keywords</th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								{allUserRecipes?.map((recipe) => (
-									<tr key={recipe._id}>
-										<td>{dateFormat(recipe.date)} </td>
-										<td>{recipe.title}</td>
-										<td>{recipe.keywords}</td>
-										<td>
-											<button className='red-btn'>Edit / Delete</button>
-										</td>
-									</tr>
-								))}
-							</tbody>
-						</table>
+						<UserRecipeList allUserRecipes={allUserRecipes}/>
 						<div>
 							<button className='red-btn' onClick={openNewRecipeForm}>
 								Add New Recipe

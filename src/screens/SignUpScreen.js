@@ -24,13 +24,13 @@ const SignUpScreen = () => {
 	const dispatch = useDispatch()
 	const userRegister = useSelector((state) => state.userRegister)
 	const { loading, error, userInfo } = userRegister
+	const userLogin = useSelector((state) => state.userLogin)
 
-	const redirect = search ? search.split('=')[1] : '/'
 	useEffect(() => {
-		if (userInfo) {
-			push(redirect)
+		if (userInfo || userLogin.userInfo) {
+			push('/')
 		}
-	}, [push, userInfo, redirect])
+	}, [push, userInfo])
 
 	const submitHandler = (e) => {
 		e.preventDefault()

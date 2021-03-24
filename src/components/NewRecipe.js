@@ -22,6 +22,7 @@ const NewRecipe = ({
 						type='text'
 						name='title'
 						id='title'
+						placeholder="Chicken curry"
 						onChange={(e) => setTitle(e.target.value)}
 						required
 					/>
@@ -32,6 +33,7 @@ const NewRecipe = ({
 						type='number'
 						name='number-of-servings'
 						id='number-of-servings'
+						placeholder="1"
 						onChange={(e) => setServings(e.target.value)}
 						required
 					/>
@@ -42,6 +44,7 @@ const NewRecipe = ({
 						type='text'
 						name='keywords'
 						id='keywords'
+						placeholder="chicken, rice, curry, onion"
 						onChange={(e) => setKeywords(e.target.value)}
 						required
 					/>
@@ -53,6 +56,7 @@ const NewRecipe = ({
 						name='ingredients'
 						id='ingredients'
 						rows='4'
+						placeholder={"1 onion. \n1 tbs oil.\nEvery ingredients different line."}
 						onChange={(e) => setIngredients(e.target.value)}
 						required
 					></textarea>
@@ -64,8 +68,7 @@ const NewRecipe = ({
 						name='directions'
 						id='directions'
 						rows='7'
-						placeholder='Choped onion. &#10;
-             Smash garlick.'
+						placeholder={"Chope onion. \nPut a oil on a pan.\nEvery step different line."}
 						onChange={(e) => setDirections(e.target.value)}
 						required
 					/>

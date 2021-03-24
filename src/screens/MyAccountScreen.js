@@ -29,6 +29,7 @@ const MyAccountScreen = () => {
 	const [numberOfServings, setNumberOfServing] = useState('')
 	const [ingredients, setIngredients] = useState('')
 	const [directions, setDirections] = useState('')
+	const [photo, setPhoto] = useState('')
 
 	//*Redux State
 	const dispatch = useDispatch()
@@ -165,7 +166,9 @@ const MyAccountScreen = () => {
 							setTitle={setTitleNewRecipe}
 							setKeywords={setKeywordsNewRecipe}
 							setIngredients={setIngredients}
+							setDirections={setDirections}
 							setServings={setNumberOfServing}
+							setPhoto={setPhoto}
 						/>
 					</Fragment>
 				) : (

@@ -38,6 +38,9 @@ function App() {
 					<Route path='/submit-recipe'>
 						<SubmitRecipeScreen />
 					</Route>
+					<Route path='/myaccount/:newrecipe'>
+						<MyAccountScreen />
+					</Route>
 					<Route path='/myaccount'>
 						<MyAccountScreen />
 					</Route>

@@ -1,0 +1,21 @@
+@use './abstracts' as *;
+
+.new-recipe {
+	display: none;
+	padding: 1rem;
+	div {
+		margin-top: 1rem;
+		display: flex;
+		flex-direction: column;
+        
+	}
+}
+.uploadPhoto-group {
+	display: flex;
+	flex-direction: column;
+}
+.open-component {
+	display: flex;
+	flex-direction: column;
+	background-color: $light-grey;
+}

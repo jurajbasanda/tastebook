@@ -94,9 +94,9 @@ const RecipeScreen = () => {
 							
 						</div>
 						<div className='dsc-method-group'>
-							<h2>Method</h2>
+							<h2>Directions</h2>
 							<ol className='dsc-ol'>
-								{recipe?.description?.map((step, i) => (
+								{recipe?.directions?.map((step, i) => (
 									<li key={i}>{step}</li>
 								))}
 							</ol>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserDetails, updateUserProfile } from '../actions/userAction'
@@ -8,11 +8,12 @@ import '../style/MyAcountScreen.scss'
 //Components
 import Loader from '../components/Loader'
 import ErrorMessage from '../components/ErrorMessage'
+import NewRecipe from '../components/NewRecipe'
 
 const MyAccountScreen = () => {
-	//Router Hooks
+	//*Router Hooks
 	const { push } = useHistory()
-	//State
+	//*State
 	const [firstName, setFirstName] = useState('')
 	const [lastName, setLastName] = useState('')
 	const [email, setEmail] = useState('')
@@ -20,6 +21,15 @@ const MyAccountScreen = () => {
 	const [confirmPassword, setConfirmPassword] = useState('')
 	const [userId, setUserId] = useState('')
 	const [message, setMessage] = useState(null)
+
+	//State New Recipe
+	const [newRecipeForm, setNewRecipeFrom] = useState('')
+	const [titleNewRecipe, setTitleNewRecipe] = useState('')
+	const [keywordsNewRecipe, setKeywordsNewRecipe] = useState('')
+	const [numberOfServings, setNumberOfServing] = useState('')
+	const [ingredients, setIngredients] = useState('')
+	const [directions, setDirections] = useState('')
+
 	//*Redux State
 	const dispatch = useDispatch()
 	const userDetails = useSelector((state) => state.userDetails)
@@ -31,16 +41,21 @@ const MyAccountScreen = () => {
 	const recipeUser = useSelector((state) => state.recipeUser)
 	const { allUserRecipes } = recipeUser
 
-	// Date format
+	//Date format
 	const dateFormat = (recipeDate) => {
 		const dateObj = new Date(recipeDate)
 		const month = dateObj.getMonth() + 1
 		const day = dateObj.getDate()
 		const year = dateObj.getFullYear()
-
 		return `${day}/${month}/${year}`
 	}
-
+	//Open and close New Recipe Form
+	const openNewRecipeForm = () => {
+		newRecipeForm === ''
+			? setNewRecipeFrom('open-component')
+			: setNewRecipeFrom('')
+	}
+	//Get user details OR redirect to "/login"
 	useEffect(() => {
 		if (userDetails?.error) {
 			push('/login')
@@ -54,27 +69,27 @@ const MyAccountScreen = () => {
 			}
 		}
 	}, [dispatch])
-
+	//Get users all recipes
 	useEffect(() => {
 		dispatch(getRecipeUser(user?._id))
 	}, [user])
 
-	const submitHandler = (e) => {
-		e.preventDefault()
-		if (password !== confirmPassword) {
-			setMessage('Passwords do not match')
-		} else {
-			dispatch(
-				updateUserProfile({
-					id: user._id,
-					firstName,
-					lastName,
-					email,
-					password,
-				})
-			)
-		}
-	}
+	// const submitHandler = (e) => {
+	// 	e.preventDefault()
+	// 	if (password !== confirmPassword) {
+	// 		setMessage('Passwords do not match')
+	// 	} else {
+	// 		dispatch(
+	// 			updateUserProfile({
+	// 				id: user._id,
+	// 				firstName,
+	// 				lastName,
+	// 				email,
+	// 				password,
+	// 			})
+	// 		)
+	// 	}
+	// }
 	return (
 		<section className='myaccount-page'>
 			<div className='profile-group'>
@@ -117,29 +132,42 @@ const MyAccountScreen = () => {
 				) : recipeUser?.error ? (
 					<p>{recipeUser.error}</p>
 				) : allUserRecipes ? (
-					<table className='profile-table'>
-						<thead>
-							<tr>
-								<th>Date</th>
-								<th>Title</th>
-								<th>Keywords</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							{allUserRecipes?.map((recipe) => (
-								<tr key={recipe._id}>
-									<td>{dateFormat(recipe.date)} </td>
-									<td>{recipe.title}</td>
-									<td>{recipe.keywords}</td>
-									<td>{recipe.userId}</td>
-									<td>
-										<button className='red-btn'>Edit / Delete</button>
-									</td>
+					<Fragment>
+						<table className='recipe-table'>
+							<thead>
+								<tr>
+									<th>Date</th>
+									<th>Title</th>
+									<th>Keywords</th>
+									<th></th>
 								</tr>
-							))}
-						</tbody>
-					</table>
+							</thead>
+							<tbody>
+								{allUserRecipes?.map((recipe) => (
+									<tr key={recipe._id}>
+										<td>{dateFormat(recipe.date)} </td>
+										<td>{recipe.title}</td>
+										<td>{recipe.keywords}</td>
+										<td>
+											<button className='red-btn'>Edit / Delete</button>
+										</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+						<div>
+							<button className='red-btn' onClick={openNewRecipeForm}>
+								Add New Recipe
+							</button>
+						</div>
+						<NewRecipe
+							openComponent={newRecipeForm}
+							setTitle={setTitleNewRecipe}
+							setKeywords={setKeywordsNewRecipe}
+							setIngredients={setIngredients}
+							setServings={setNumberOfServing}
+						/>
+					</Fragment>
 				) : (
 					<h1>No Recipe find</h1>
 				)}

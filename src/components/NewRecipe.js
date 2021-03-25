@@ -14,7 +14,7 @@ const NewRecipe = ({
 }) => {
 	return (
 		<div className={`new-recipe ${openComponent}`}>
-			<form>
+			<form enctype='multipart/form-data'>
 				<h2>New Recipe</h2>
 				<div>
 					<label htmlFor='title'>Recipe title*</label>
@@ -22,7 +22,7 @@ const NewRecipe = ({
 						type='text'
 						name='title'
 						id='title'
-						placeholder="Chicken curry"
+						placeholder='Chicken curry'
 						onChange={(e) => setTitle(e.target.value)}
 						required
 					/>
@@ -33,7 +33,7 @@ const NewRecipe = ({
 						type='number'
 						name='number-of-servings'
 						id='number-of-servings'
-						placeholder="1"
+						placeholder='1'
 						onChange={(e) => setServings(e.target.value)}
 						required
 					/>
@@ -44,7 +44,7 @@ const NewRecipe = ({
 						type='text'
 						name='keywords'
 						id='keywords'
-						placeholder="chicken, rice, curry, onion"
+						placeholder='chicken, rice, curry, onion'
 						onChange={(e) => setKeywords(e.target.value)}
 						required
 					/>
@@ -56,7 +56,9 @@ const NewRecipe = ({
 						name='ingredients'
 						id='ingredients'
 						rows='4'
-						placeholder={"1 onion. \n1 tbs oil.\nEvery ingredients different line."}
+						placeholder={
+							'1 onion. \n1 tbs oil.\nEvery ingredients different line.'
+						}
 						onChange={(e) => setIngredients(e.target.value)}
 						required
 					></textarea>
@@ -68,7 +70,9 @@ const NewRecipe = ({
 						name='directions'
 						id='directions'
 						rows='7'
-						placeholder={"Chope onion. \nPut a oil on a pan.\nEvery step different line."}
+						placeholder={
+							'Chope onion. \nPut a oil on a pan.\nEvery step different line.'
+						}
 						onChange={(e) => setDirections(e.target.value)}
 						required
 					/>
@@ -84,6 +88,7 @@ const NewRecipe = ({
 					</label>
 					<input
 						type='file'
+						name='photo'
 						aria-label='Recipe image uploader'
 						accept='.jpeg, .png, .jpg'
 						id='uploadPhoto'

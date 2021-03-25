@@ -23,7 +23,6 @@ const MyAccountScreen = () => {
 	const [confirmPassword, setConfirmPassword] = useState('')
 	const [userId, setUserId] = useState('')
 	const [message, setMessage] = useState(null)
-
 	//State New Recipe
 	const [newRecipeForm, setNewRecipeFrom] = useState('')
 	const [titleNewRecipe, setTitleNewRecipe] = useState('')
@@ -32,19 +31,23 @@ const MyAccountScreen = () => {
 	const [ingredients, setIngredients] = useState('')
 	const [directions, setDirections] = useState('')
 	const [photo, setPhoto] = useState('')
+	//
 
 	//*Redux State
 	const dispatch = useDispatch()
+	//User info
 	const userDetails = useSelector((state) => state.userDetails)
 	const { loading, error, user } = userDetails
 	const userLogin = useSelector((state) => state.userDetails)
 	const { userInfo } = userLogin
+	//User update
 	const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
 	const { success } = userUpdateProfile
+	//Recipes from the user
 	const recipeUser = useSelector((state) => state.recipeUser)
 	const { allUserRecipes } = recipeUser
+	//
 
-	
 	//Open and close New Recipe Form
 	const openNewRecipeForm = () => {
 		newRecipeForm === ''
@@ -70,7 +73,6 @@ const MyAccountScreen = () => {
 		dispatch(getRecipeUser(user?._id))
 	}, [user])
 
-	
 	return (
 		<section className='myaccount-page'>
 			<div className='profile-group'>

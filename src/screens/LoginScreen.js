@@ -18,15 +18,17 @@ const LoginScreen = () => {
 	const dispatch = useDispatch()
 	const userLogin = useSelector((state) => state.userLogin)
 	const { loading, error, userInfo } = userLogin
+	//
 
 	const redirect = search ? search.split('=')[1] : '/'
-
+	//Check if user is log in
 	useEffect(() => {
 		if (userInfo) {
 			push('/')
 		}
 	}, [push, userInfo])
 
+	//Log in
 	const submitHandler = (e) => {
 		e.preventDefault()
 		dispatch(login(email, password))
@@ -39,9 +41,7 @@ const LoginScreen = () => {
 				<h1>{error}</h1>
 			) : (
 				<Fragment>
-				
 					<div className='login-bg'></div>
-					
 					<h1>Log In</h1>
 					<form onSubmit={submitHandler}>
 						<label>Email</label>

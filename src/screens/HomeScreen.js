@@ -9,7 +9,6 @@ import ErrorMessage from '../components/ErrorMessage'
 import Recipes from '../components/Recipes'
 import Loader from '../components/Loader'
 //Images
-//Images
 import vegetarian from '../images/Vegetarian.png'
 import hot from '../images/hot-food.png'
 import glutenFree from '../images/gluten-free.png'
@@ -20,6 +19,9 @@ const HomeScreen = () => {
 	const dispatch = useDispatch()
 	const recipeList = useSelector((state) => state.recipeList)
 	const { loading, error, recipes, random } = recipeList
+	//
+
+	//Get all recipes
 	useEffect(() => {
 		dispatch(listRecipe(keyword))
 	}, [dispatch, keyword])

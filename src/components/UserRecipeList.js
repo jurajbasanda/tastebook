@@ -1,6 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const UserREcipeList = ({ allUserRecipes }) => {
+
+const UserRecipeList = ({ allUserRecipes }) => {
 	//Date format
 	const dateFormat = (recipeDate) => {
 		const dateObj = new Date(recipeDate)
@@ -35,5 +37,8 @@ const UserREcipeList = ({ allUserRecipes }) => {
 		</table>
 	)
 }
+UserRecipeList.propTypes = {
+	allUserRecipe: PropTypes.array,
+}
 
-export default UserREcipeList
+export default UserRecipeList

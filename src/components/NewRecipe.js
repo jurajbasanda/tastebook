@@ -12,6 +12,7 @@ const NewRecipe = ({
 	setDirections,
 	setPhoto,
 }) => {
+	
 	return (
 		<div className={`new-recipe ${openComponent}`}>
 			<form enctype='multipart/form-data'>
@@ -104,6 +105,12 @@ const NewRecipe = ({
 }
 NewRecipe.propTypes = {
 	openComponent: PropTypes.string,
+	setTitle: PropTypes.string,
+	setServings: PropTypes.string,
+	setKeywords: PropTypes.string,
+	setIngredients: PropTypes.string,
+	setDirections: PropTypes.string,
+	setPhoto: PropTypes.string,
 }
 
 export default NewRecipe

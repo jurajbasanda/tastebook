@@ -138,7 +138,7 @@ const Nav = () => {
 							</Link>
 						</li>
 					</ul>
-					<ul className={`fix ${MenuCategoryDesktop}`}>
+					<ul className={`menu-category-desktop ${MenuCategoryDesktop}`}>
 						<li>
 							{' '}
 							<button onClick={menuCategory} onKeyDown={menuCategory}>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import { useHistory, useLocation, Link } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { register } from '../actions/userAction'
 
@@ -10,7 +10,6 @@ import '../style/LoginScreen.scss'
 
 const SignUpScreen = () => {
 	//Router Hooks
-	const { search } = useLocation()
 	const { push } = useHistory()
 	//State
 	const [firstName, setFirstName] = useState('')
@@ -30,7 +29,7 @@ const SignUpScreen = () => {
 		if (userInfo || userLogin.userInfo) {
 			push('/')
 		}
-	}, [push, userInfo])
+	}, [push, userInfo, userLogin])
 
 	const submitHandler = (e) => {
 		e.preventDefault()

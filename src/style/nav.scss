@@ -105,8 +105,11 @@ nav {
 	font-weight: bold;
 	text-align: center;
 	text-transform: uppercase;
+	button {
+		cursor: pointer;
+	}
 }
-.fix {
+.menu-category-desktop {
 	display: none;
 	z-index: 9;
 	align-items: center;
@@ -116,6 +119,9 @@ nav {
 	grid-template-rows: 1fr;
 	right: -30rem;
 	transition: all 1s ease;
+	button {
+		cursor: pointer;
+	}
 }
 .open-desktop {
 	width: 35%;

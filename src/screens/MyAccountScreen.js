@@ -31,6 +31,8 @@ const MyAccountScreen = () => {
 	const [ingredients, setIngredients] = useState('')
 	const [directions, setDirections] = useState('')
 	const [photo, setPhoto] = useState('')
+	const [uploading, setUploading] = useState(false)
+
 	//
 
 	//*Redux State
@@ -67,11 +69,11 @@ const MyAccountScreen = () => {
 				setEmail(user?.email)
 			}
 		}
-	}, [dispatch])
+	}, [dispatch,push,userDetails,user])
 	//Get users all recipes
 	useEffect(() => {
 		dispatch(getRecipeUser(user?._id))
-	}, [user])
+	}, [user,dispatch])
 
 	return (
 		<section className='myaccount-page'>

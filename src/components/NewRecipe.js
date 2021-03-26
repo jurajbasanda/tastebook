@@ -10,12 +10,12 @@ const NewRecipe = ({
 	setKeywords,
 	setIngredients,
 	setDirections,
-	setPhoto,
+	uploadFileHandler,
+	submitHandler,
 }) => {
-	
 	return (
 		<div className={`new-recipe ${openComponent}`}>
-			<form enctype='multipart/form-data'>
+			<form encType='multipart/form-data' onSubmit={submitHandler}>
 				<h2>New Recipe</h2>
 				<div>
 					<label htmlFor='title'>Recipe title*</label>
@@ -89,11 +89,11 @@ const NewRecipe = ({
 					</label>
 					<input
 						type='file'
-						name='photo'
+						name='image'
 						aria-label='Recipe image uploader'
 						accept='.jpeg, .png, .jpg'
 						id='uploadPhoto'
-						onChange={(e) => setPhoto(e.target.value)}
+						onChange={uploadFileHandler}
 						required
 					/>
 					<small>JPEG/PNG/JPG, max 10MB</small>
@@ -103,14 +103,13 @@ const NewRecipe = ({
 		</div>
 	)
 }
-NewRecipe.propTypes = {
-	openComponent: PropTypes.string,
-	setTitle: PropTypes.string,
-	setServings: PropTypes.string,
-	setKeywords: PropTypes.string,
-	setIngredients: PropTypes.string,
-	setDirections: PropTypes.string,
-	setPhoto: PropTypes.string,
-}
+// NewRecipe.propTypes = {
+// 	openComponent: PropTypes.string,
+// 	setTitle: PropTypes.string,
+// 	setServings: PropTypes.string,
+// 	setKeywords: PropTypes.string,
+// 	setIngredients: PropTypes.string,
+// 	setDirections: PropTypes.string,
+// }
 
 export default NewRecipe

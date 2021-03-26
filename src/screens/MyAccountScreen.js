@@ -2,7 +2,9 @@ import React, { useState, useEffect, Fragment } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserDetails, updateUserProfile } from '../actions/userAction'
-import { getRecipeUser } from '../actions/recipeActions'
+import { getRecipeUser, createRecipe } from '../actions/recipeActions'
+import axios from 'axios'
+
 //Style
 import '../style/MyAcountScreen.scss'
 //Components
@@ -56,6 +58,44 @@ const MyAccountScreen = () => {
 			? setNewRecipeFrom('open-component')
 			: setNewRecipeFrom('')
 	}
+	//Upload photo to the storage
+	const uploadFileHandler = async (e) => {
+		const file = e.target.files[0]
+		const formData = new FormData()
+		formData.append('image', file)
+		setUploading(true)
+
+		try {
+			const config = {
+				headers: {
+					'Content-Type': 'multipart/form-data',
+				},
+			}
+
+			const { data } = await axios.post('/api/upload', formData, config)
+
+			setPhoto(data)
+			setUploading(false)
+		} catch (error) {
+			console.error(error)
+			setUploading(false)
+		}
+	}
+	//Submit New Recipe
+	const submitHandler = (e) => {
+		e.preventDefault()
+		dispatch(
+			createRecipe({
+				userId:user._id,
+				titleNewRecipe,
+				keywordsNewRecipe,
+				numberOfServings,
+				ingredients,
+				directions,
+				photo,
+			})
+		)
+	}
 	//Get user details OR redirect to "/login"
 	useEffect(() => {
 		if (userDetails?.error) {
@@ -69,11 +109,11 @@ const MyAccountScreen = () => {
 				setEmail(user?.email)
 			}
 		}
-	}, [dispatch,push,userDetails,user])
+	}, [dispatch, push])
 	//Get users all recipes
 	useEffect(() => {
 		dispatch(getRecipeUser(user?._id))
-	}, [user,dispatch])
+	}, [user, dispatch])
 
 	return (
 		<section className='myaccount-page'>
@@ -99,7 +139,7 @@ const MyAccountScreen = () => {
 					<p>{recipeUser.error}</p>
 				) : allUserRecipes ? (
 					<Fragment>
-						<UserRecipeList allUserRecipes={allUserRecipes}/>
+						<UserRecipeList allUserRecipes={allUserRecipes} />
 						<div>
 							<button className='red-btn' onClick={openNewRecipeForm}>
 								Add New Recipe
@@ -113,6 +153,8 @@ const MyAccountScreen = () => {
 							setDirections={setDirections}
 							setServings={setNumberOfServing}
 							setPhoto={setPhoto}
+							uploadFileHandler={uploadFileHandler}
+							submitHandler={submitHandler}
 						/>
 					</Fragment>
 				) : (

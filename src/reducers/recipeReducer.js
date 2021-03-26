@@ -8,6 +8,14 @@ import {
 	RECIPE_USER_REQUEST,
 	RECIPE_USER_SUCCESS,
 	RECIPE_USER_FAIL,
+	RECIPE_CREATE_REQUEST,
+	RECIPE_CREATE_SUCCESS,
+	RECIPE_CREATE_FAIL,
+	RECIPE_CREATE_RESET,
+	RECIPE_UPDATE_REQUEST,
+	RECIPE_UPDATE_SUCCESS,
+	RECIPE_UPDATE_FAIL,
+	RECIPE_UPDATE_RESET
 } from '../constants/recipeConstants'
 
 function recipeListReducer(state = { recipes: [] }, action) {
@@ -52,7 +60,7 @@ function recipeDetailsReducer(state = { oneRecipe: {} }, action) {
 	}
 }
 
-function recipeUserReducer(state = { allUserRecipes:[]}, action) {
+function recipeUserReducer(state = { allUserRecipes: [] }, action) {
 	switch (action.type) {
 		case RECIPE_USER_REQUEST:
 			return { loading: true, allUserRecipes: [] }
@@ -65,4 +73,40 @@ function recipeUserReducer(state = { allUserRecipes:[]}, action) {
 	}
 }
 
-export { recipeListReducer, recipeDetailsReducer, recipeUserReducer }
+const recipeCreateReducer = (state = {}, action) => {
+	switch (action.type) {
+		case RECIPE_CREATE_REQUEST:
+			return { loading: true }
+		case RECIPE_CREATE_SUCCESS:
+			return { loading: false, success: true, recipe: action.payload }
+		case RECIPE_CREATE_FAIL:
+			return { loading: false, error: action.payload }
+		case RECIPE_CREATE_RESET:
+			return {}
+		default:
+			return state
+	}
+}
+
+const recipeUpdateReducer = (state = { recipe: {} }, action) => {
+	switch (action.type) {
+		case RECIPE_UPDATE_REQUEST:
+			return { loading: true }
+		case RECIPE_UPDATE_SUCCESS:
+			return { loading: false, success: true, product: action.payload }
+		case RECIPE_UPDATE_FAIL:
+			return { loading: false, error: action.payload }
+		case RECIPE_UPDATE_RESET:
+			return { product: {} }
+		default:
+			return state
+	}
+}
+
+export {
+	recipeListReducer,
+	recipeDetailsReducer,
+	recipeUserReducer,
+	recipeUpdateReducer,
+	recipeCreateReducer,
+}

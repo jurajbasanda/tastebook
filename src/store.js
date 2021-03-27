@@ -4,6 +4,7 @@ import {
 	recipeListReducer,
 	recipeDetailsReducer,
 	recipeUserReducer,
+	recipeCreateReducer
 } from './reducers/recipeReducer'
 import {
 	userLoginReducer,
@@ -23,6 +24,7 @@ const reducer = combineReducers({
 	recipeList: recipeListReducer,
 	recipeDetails: recipeDetailsReducer,
 	recipeUser: recipeUserReducer,
+	createRecipe:recipeCreateReducer,
 	userLogin: userLoginReducer,
 	userRegister: userRegisterReducer,
 	userDetails: userDetailsReducer,

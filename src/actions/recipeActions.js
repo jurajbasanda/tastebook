@@ -52,7 +52,15 @@ const getRecipeUser = (userId) => async (dispatch) => {
 	}
 }
 
-const createRecipe = (userId) => async (dispatch, getState) => {
+const createRecipe = ({
+	userId,
+	title,
+	keywords,
+	serving,
+	ingredients,
+	directions,
+	img,
+}) => async (dispatch, getState) => {
 	try {
 		dispatch({
 			type: RECIPE_CREATE_REQUEST,
@@ -64,11 +72,19 @@ const createRecipe = (userId) => async (dispatch, getState) => {
 
 		const config = {
 			headers: {
-				'auth-token': `${userId}`,
+				'auth-token': `${userInfo}`,
 			},
 		}
 
-		const { data } = await axios.post(`/api/recipes`, {}, config)
+		const { data } = await axios.post(`/api/recipes`, {
+			userId: userId,
+			title: title,
+			keywords: keywords,
+			servings: serving,
+			ingredients: ingredients,
+			directions: directions,
+			img: `../../../backend/${img}`,
+		},config)
 
 		dispatch({
 			type: RECIPE_CREATE_SUCCESS,
@@ -89,5 +105,4 @@ const createRecipe = (userId) => async (dispatch, getState) => {
 	}
 }
 
-
-export { listRecipe, recipeDetail, getRecipeUser, createRecipe, }
+export { listRecipe, recipeDetail, getRecipeUser, createRecipe }

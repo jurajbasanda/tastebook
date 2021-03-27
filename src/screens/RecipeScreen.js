@@ -21,6 +21,11 @@ const RecipeScreen = () => {
 	const recipeDetails = useSelector((state) => state.recipeDetails)
 	const { loading, error, recipe } = recipeDetails
 
+	//Create Array
+	const arrayMaking = (string) => {
+		return string?.split(';')
+
+	}
 	useEffect(() => {
 		dispatch(recipeDetail(id))
 	}, [id, dispatch])
@@ -79,24 +84,21 @@ const RecipeScreen = () => {
 									</h3>
 								) : null}
 								<ul>
-									{recipe?.ingredients?.map((step, i) => (
+									{arrayMaking(recipe?.ingredients)?.map((step, i) => (
 										<li key={i}>{step}</li>
 									))}
 								</ul>
 							</div>
 							<div className='dsc-lists'>
 								<div className='dsc-imgs-group'>
-									{recipe?.img?.map((item, i) => (
-										<img key={i} src={item} alt={recipe.title} />
-									))}
+									<img src={recipe?.img} alt={recipe.title} />
 								</div>
 							</div>
-							
 						</div>
 						<div className='dsc-method-group'>
 							<h2>Directions</h2>
 							<ol className='dsc-ol'>
-								{recipe?.directions?.map((step, i) => (
+								{arrayMaking(recipe?.directions)?.map((step, i) => (
 									<li key={i}>{step}</li>
 								))}
 							</ol>

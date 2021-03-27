@@ -34,9 +34,8 @@ const NewRecipe = ({
 						type='number'
 						name='number-of-servings'
 						id='number-of-servings'
-						placeholder='1'
 						onChange={(e) => setServings(e.target.value)}
-						required
+						defaultValue='1'
 					/>
 				</div>
 				<div>

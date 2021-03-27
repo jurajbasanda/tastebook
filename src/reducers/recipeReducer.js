@@ -31,7 +31,7 @@ function recipeListReducer(state = { recipes: [] }, action) {
 				recipes: allRecipes,
 				random: {
 					title: randomRecipe?.title,
-					img: randomRecipe?.img[0],
+					img: randomRecipe?.img,
 					_id: randomRecipe?._id,
 					hot: randomRecipe?.hot,
 					glutenFree: randomRecipe?.glutenFree,

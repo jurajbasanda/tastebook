@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getUserDetails, updateUserProfile } from '../actions/userAction'
 import { getRecipeUser, createRecipe } from '../actions/recipeActions'
 import axios from 'axios'
-
 //Style
 import '../style/MyAcountScreen.scss'
 //Components
@@ -84,15 +83,16 @@ const MyAccountScreen = () => {
 	//Submit New Recipe
 	const submitHandler = (e) => {
 		e.preventDefault()
+		console.log('submited')
 		dispatch(
 			createRecipe({
-				userId:user._id,
-				titleNewRecipe,
-				keywordsNewRecipe,
-				numberOfServings,
-				ingredients,
-				directions,
-				photo,
+				userId: user._id,
+				title: titleNewRecipe,
+				keywords: keywordsNewRecipe,
+				serving: numberOfServings,
+				ingredients: ingredients,
+				directions: directions,
+				img: photo,
 			})
 		)
 	}

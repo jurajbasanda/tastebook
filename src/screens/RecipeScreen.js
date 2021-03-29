@@ -24,7 +24,6 @@ const RecipeScreen = () => {
 	//Create Array
 	const arrayMaking = (string) => {
 		return string?.split(';')
-
 	}
 	useEffect(() => {
 		dispatch(recipeDetail(id))
@@ -75,12 +74,9 @@ const RecipeScreen = () => {
 								<h2>Ingredients</h2>
 								{recipe.serving ? (
 									<h3>
-										For {recipe.serving}{' '}
-										{recipe.servings > 1 ? (
-											<span>servings</span>
-										) : (
-											<span>serving</span>
-										)}
+										For {recipe.serving}
+										{''}
+										{recipe.servings > 1 ? <span>servings</span> : <span>serving</span>}
 									</h3>
 								) : null}
 								<ul>

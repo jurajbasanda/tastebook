@@ -76,15 +76,19 @@ const createRecipe = ({
 			},
 		}
 
-		const { data } = await axios.post(`/api/recipes`, {
-			userId: userId,
-			title: title,
-			keywords: keywords,
-			servings: serving,
-			ingredients: ingredients,
-			directions: directions,
-			img: `../../../backend/${img}`,
-		},config)
+		const { data } = await axios.post(
+			'/api/recipes',
+			{
+				userId: userId,
+				title: title,
+				keywords: keywords,
+				servings: serving,
+				ingredients: ingredients,
+				directions: directions,
+				img: `../../../backend/${img}`,
+			},
+			config
+		)
 
 		dispatch({
 			type: RECIPE_CREATE_SUCCESS,

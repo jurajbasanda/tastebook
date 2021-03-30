@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 
-const UserRecipeList = ({ allUserRecipes }) => {
+const UserRecipeList = ({ allUserRecipes,handleDeleteRecipe }) => {
 	//Date format
 	const dateFormat = (recipeDate) => {
 		const dateObj = new Date(recipeDate)
@@ -29,7 +29,7 @@ const UserRecipeList = ({ allUserRecipes }) => {
 						<td>{recipe.title}</td>
 						<td>{recipe.keywords}</td>
 						<td>
-							<button className='red-btn'>Edit / Delete</button>
+							<button className='red-btn' onSubmit={handleDeleteRecipe}>Delete</button>
 						</td>
 					</tr>
 				))}

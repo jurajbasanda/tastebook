@@ -10,6 +10,9 @@ const NewRecipe = ({
 	setKeywords,
 	setIngredients,
 	setDirections,
+	setVegetarian,
+	setHot,
+	setGlutenFree,
 	uploadFileHandler,
 	submitHandler,
 }) => {
@@ -52,17 +55,35 @@ const NewRecipe = ({
 				<div className='chceck-box-group'>
 					<div>
 						<label htmlFor='hot'>Spicy food</label>
-						<input type='checkbox' name='hot' id='hot' />
+						<input
+							type='checkbox'
+							name='hot'
+							id='hot'
+							defaultValue='false'
+							onChange={(e) => setHot(e.target.value)}
+						/>
 					</div>
 					<div>
 						{' '}
 						<label htmlFor='vegetarian'>Suitable for vegetarian</label>
-						<input type='checkbox' name='vegetarian' id='vegetarian' />
+						<input
+							type='checkbox'
+							name='vegetarian'
+							id='vegetarian'
+							defaultValue='false'
+							onChange={(e) => setVegetarian(e.target.value)}
+						/>
 					</div>
 					<div>
 						{' '}
 						<label htmlFor='gluten-free'>Gluten free</label>
-						<input type='checkbox' name='gluten-free' id='gluten-free' />
+						<input
+							type='checkbox'
+							name='gluten-free'
+							id='gluten-free'
+							defaultValue='false'
+							onChange={(e) => setGlutenFree(e.target.value)}
+						/>
 					</div>
 				</div>
 				<div>

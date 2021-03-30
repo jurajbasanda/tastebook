@@ -8,6 +8,7 @@ import axios from 'axios'
 import '../style/MyAcountScreen.scss'
 //Components
 import Loader from '../components/Loader'
+import Success from '../components/Success'
 import ErrorMessage from '../components/ErrorMessage'
 import NewRecipe from '../components/NewRecipe'
 import ProfileInfo from '../components/ProfileInfo'
@@ -32,8 +33,8 @@ const MyAccountScreen = () => {
 	const [ingredients, setIngredients] = useState('')
 	const [directions, setDirections] = useState('')
 	const [photo, setPhoto] = useState('')
-	const [hot, setHor] = useState(false)
-	const [vegetarian, setVegetaria] = useState(false)
+	const [hot, setHot] = useState(false)
+	const [vegetarian, setVegetarian] = useState(false)
 	const [glutenFree, setGlutenFree] = useState(false)
 	const [uploading, setUploading] = useState(false)
 
@@ -84,7 +85,7 @@ const MyAccountScreen = () => {
 	//Submit New Recipe
 	const submitHandler = (e) => {
 		e.preventDefault()
-		console.log('submited')
+		openNewRecipeForm()
 		dispatch(
 			createRecipe({
 				userId: user._id,
@@ -93,10 +94,16 @@ const MyAccountScreen = () => {
 				serving: numberOfServings,
 				ingredients: ingredients,
 				directions: directions,
+				hot: hot,
+				vegetarian: vegetarian,
+				glutenFree: glutenFree,
 				img: photo,
 			})
 		)
+		dispatch(getRecipeUser(user?._id))
 	}
+	//
+	const handleDeleteRecipe = () => {}
 	//Get user details OR redirect to "/login"
 	useEffect(() => {
 		if (userDetails?.error) {
@@ -134,13 +141,17 @@ const MyAccountScreen = () => {
 			</div>
 			<div className='your-recipes-group'>
 				<h1>Your recipes</h1>
+				{createRecipe?.success ? <Success /> : null}
 				{recipeUser?.loading ? (
 					<Loader />
 				) : recipeUser?.error ? (
 					<p>{recipeUser.error}</p>
 				) : allUserRecipes ? (
 					<Fragment>
-						<UserRecipeList allUserRecipes={allUserRecipes} />
+						<UserRecipeList
+							allUserRecipes={allUserRecipes}
+							handleDeleteRecipe={handleDeleteRecipe}
+						/>
 						<div>
 							<button className='red-btn' onClick={openNewRecipeForm}>
 								Add New Recipe
@@ -154,6 +165,9 @@ const MyAccountScreen = () => {
 							setDirections={setDirections}
 							setServings={setNumberOfServing}
 							setPhoto={setPhoto}
+							setVegetarian={setVegetarian}
+							setHot={setHot}
+							setGlutenFree={setGlutenFree}
 							uploadFileHandler={uploadFileHandler}
 							submitHandler={submitHandler}
 						/>

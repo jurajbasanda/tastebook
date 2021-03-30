@@ -93,7 +93,7 @@ const recipeUpdateReducer = (state = { recipe: {} }, action) => {
 		case RECIPE_UPDATE_REQUEST:
 			return { loading: true }
 		case RECIPE_UPDATE_SUCCESS:
-			return { loading: false, success: true, product: action.payload }
+			return { loading: false, success: true, recipe: action.payload }
 		case RECIPE_UPDATE_FAIL:
 			return { loading: false, error: action.payload }
 		case RECIPE_UPDATE_RESET:

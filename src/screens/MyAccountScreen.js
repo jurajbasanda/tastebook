@@ -32,6 +32,9 @@ const MyAccountScreen = () => {
 	const [ingredients, setIngredients] = useState('')
 	const [directions, setDirections] = useState('')
 	const [photo, setPhoto] = useState('')
+	const [hot, setHor] = useState(false)
+	const [vegetarian, setVegetaria] = useState(false)
+	const [glutenFree, setGlutenFree] = useState(false)
 	const [uploading, setUploading] = useState(false)
 
 	//
@@ -53,9 +56,7 @@ const MyAccountScreen = () => {
 
 	//Open and close New Recipe Form
 	const openNewRecipeForm = () => {
-		newRecipeForm === ''
-			? setNewRecipeFrom('open-component')
-			: setNewRecipeFrom('')
+		newRecipeForm === '' ? setNewRecipeFrom('open-component') : setNewRecipeFrom('')
 	}
 	//Upload photo to the storage
 	const uploadFileHandler = async (e) => {

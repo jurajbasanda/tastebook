@@ -59,7 +59,7 @@ const createRecipe = ({
 	serving,
 	ingredients,
 	directions,
-	img,
+	img,hot,vegetarian,glutenFree
 }) => async (dispatch, getState) => {
 	try {
 		dispatch({

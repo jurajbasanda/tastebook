@@ -17,7 +17,7 @@
 	thead{background-color: $dark;
 		th,td{color: white;
 		border:0;
-		padding: 1rem;
+		padding: 0.2rem;
 		text-align: left;}}
 	tbody {
 		tr:nth-child(even) {
@@ -36,7 +36,7 @@
 	thead{background-color: $dark;
 		th,td{color: white;
 		border:0;
-		padding: 1rem;
+		padding: 0.5rem;
 		text-align: left;}}
 	tbody {
 		tr:nth-child(even) {
@@ -82,7 +82,6 @@
 		thead{background-color: $dark;
 			th,td{color: white;
 			border:0;
-			padding: 0rem;
 			text-align: left;}}
 		tbody {
 			tr:nth-child(even) {
@@ -92,7 +91,7 @@
 			th,
 			td {
 				border:0;
-				padding: 0rem;
+				padding: 0.1rem;
 				text-align: left;
 			}
 		}

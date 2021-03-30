@@ -49,6 +49,22 @@ const NewRecipe = ({
 						required
 					/>
 				</div>
+				<div className='chceck-box-group'>
+					<div>
+						<label htmlFor='hot'>Spicy food</label>
+						<input type='checkbox' name='hot' id='hot' />
+					</div>
+					<div>
+						{' '}
+						<label htmlFor='vegetarian'>Suitable for vegetarian</label>
+						<input type='checkbox' name='vegetarian' id='vegetarian' />
+					</div>
+					<div>
+						{' '}
+						<label htmlFor='gluten-free'>Gluten free</label>
+						<input type='checkbox' name='gluten-free' id='gluten-free' />
+					</div>
+				</div>
 				<div>
 					<label htmlFor='ingredients'>Ingredients*</label>
 					<textarea
@@ -56,9 +72,7 @@ const NewRecipe = ({
 						name='ingredients'
 						id='ingredients'
 						rows='4'
-						placeholder={
-							'1 onion. \n1 tbs oil.\nEvery ingredients different line.'
-						}
+						placeholder={'1 onion;\n1 tbs oil;\nSplit ingrediences using semicolon (;)'}
 						onChange={(e) => setIngredients(e.target.value)}
 						required
 					></textarea>
@@ -71,7 +85,7 @@ const NewRecipe = ({
 						id='directions'
 						rows='7'
 						placeholder={
-							'Chope onion. \nPut a oil on a pan.\nEvery step different line.'
+							'Chope onion; \nMix sugar with flour;\nSplit Steps using semicolon (;)'
 						}
 						onChange={(e) => setDirections(e.target.value)}
 						required
@@ -96,6 +110,29 @@ const NewRecipe = ({
 						required
 					/>
 					<small>JPEG/PNG/JPG, max 10MB</small>
+					<div className='photo-guideline'>
+						<h3>Photo Guidelines</h3>
+						<ul>
+							<li>
+								<i className='fas fa-check'></i> Landscape (horizontal) photos
+							</li>
+							<li>
+								<i className='fas fa-check'></i> Photos including your dish
+							</li>
+						</ul>
+						<br></br>
+						<ul>
+							<li>
+								<i className='fas fa-times'></i> No portrait (vertical) photos
+							</li>
+							<li>
+								<i className='fas fa-times'></i> No people or pets in your photo
+							</li>
+							<li>
+								<i className='fas fa-times'></i> No personal information (name, age, etc.)
+							</li>
+						</ul>
+					</div>
 				</div>
 				<button className='red-btn'>Submit</button>
 			</form>

@@ -44,17 +44,17 @@ const HomeScreen = () => {
 												<ul className='time'>
 													{random.hot ? (
 														<li>
-															<img src={hot} alt='Hot food' />
+															<img src={hot} alt='Hot food' crossorigin/>
 														</li>
 													) : null}
 													{random.vegeterian ? (
 														<li>
-															<img src={vegetarian} alt='Vegeterian food' />
+															<img src={vegetarian} alt='Vegeterian food' crossorigin/>
 														</li>
 													) : null}
 													{random.glutenFree ? (
 														<li>
-															<img src={glutenFree} alt='Gluten free food' />
+															<img src={glutenFree} alt='Gluten free food' crossorigin/>
 														</li>
 													) : null}
 												</ul>

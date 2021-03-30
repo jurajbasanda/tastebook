@@ -10,7 +10,7 @@ const Recipes = ({ food }) => {
 					<Link to={`/recipe/${item._id}`} key={item._id}>
 						<div className='item'>
 							<div className='image'>
-								<img src={item.img} alt={item.title} srcSet='' />
+								<img src={item.img} alt={item.title} srcSet='' crossorigin />
 							</div>
 							<h3>{item.title}</h3>
 						</div>

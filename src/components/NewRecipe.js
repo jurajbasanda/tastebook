@@ -139,13 +139,13 @@ const NewRecipe = ({
 		</div>
 	)
 }
-// NewRecipe.propTypes = {
-// 	openComponent: PropTypes.string,
-// 	setTitle: PropTypes.string,
-// 	setServings: PropTypes.string,
-// 	setKeywords: PropTypes.string,
-// 	setIngredients: PropTypes.string,
-// 	setDirections: PropTypes.string,
-// }
+NewRecipe.propTypes = {
+	openComponent: PropTypes.any,
+	setTitle: PropTypes.any,
+	setServings: PropTypes.any,
+	setKeywords: PropTypes.any,
+	setIngredients: PropTypes.any,
+	setDirections: PropTypes.any,
+}
 
 export default NewRecipe

@@ -1,15 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-
-const UserRecipeList = ({ allUserRecipes,handleDeleteRecipe }) => {
+const UserRecipeList = ({ allUserRecipes, handleDeleteRecipe }) => {
 	//Date format
 	const dateFormat = (recipeDate) => {
 		const dateObj = new Date(recipeDate)
 		const month = dateObj.getMonth() + 1
 		const day = dateObj.getDate()
 		const year = dateObj.getFullYear()
-        
+
 		return `${day}/${month}/${year}`
 	}
 	return (
@@ -29,7 +28,9 @@ const UserRecipeList = ({ allUserRecipes,handleDeleteRecipe }) => {
 						<td>{recipe.title}</td>
 						<td>{recipe.keywords}</td>
 						<td>
-							<button className='red-btn' onSubmit={handleDeleteRecipe}>Delete</button>
+							<button className='red-btn' onClick={() => handleDeleteRecipe(recipe?._id)}>
+								Delete
+							</button>
 						</td>
 					</tr>
 				))}

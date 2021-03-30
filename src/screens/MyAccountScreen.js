@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserDetails, updateUserProfile } from '../actions/userAction'
-import { getRecipeUser, createRecipe } from '../actions/recipeActions'
+import { getRecipeUser, recipeDelete, recipeCreate } from '../actions/recipeActions'
 import axios from 'axios'
 //Style
 import '../style/MyAcountScreen.scss'
@@ -50,6 +50,10 @@ const MyAccountScreen = () => {
 	//User update
 	const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
 	const { success } = userUpdateProfile
+	//Create recipe
+	const createRecipe = useSelector((state) => state.createRecipe)
+	//Detele recipe
+	const deleteRecipe = useSelector((state) => state.deleteRecipe)
 	//Recipes from the user
 	const recipeUser = useSelector((state) => state.recipeUser)
 	const { allUserRecipes } = recipeUser
@@ -87,7 +91,7 @@ const MyAccountScreen = () => {
 		e.preventDefault()
 		openNewRecipeForm()
 		dispatch(
-			createRecipe({
+			recipeCreate({
 				userId: user._id,
 				title: titleNewRecipe,
 				keywords: keywordsNewRecipe,
@@ -100,10 +104,13 @@ const MyAccountScreen = () => {
 				img: photo,
 			})
 		)
-		dispatch(getRecipeUser(user?._id))
 	}
-	//
-	const handleDeleteRecipe = () => {}
+	//Deleting a recipe
+	const handleDeleteRecipe = (e) => {
+		if (window.confirm('Are you sure ?')) {
+			dispatch(recipeDelete(e))
+		}
+	}
 	//Get user details OR redirect to "/login"
 	useEffect(() => {
 		if (userDetails?.error) {
@@ -142,6 +149,7 @@ const MyAccountScreen = () => {
 			<div className='your-recipes-group'>
 				<h1>Your recipes</h1>
 				{createRecipe?.success ? <Success /> : null}
+				{deleteRecipe?.success ? <Success /> : null}
 				{recipeUser?.loading ? (
 					<Loader />
 				) : recipeUser?.error ? (

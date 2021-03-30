@@ -4,7 +4,7 @@ const Success = () => {
 	return (
 		<div className='recipe-success' style={{color:"green"}}>
 			<h3>
-				<i class='far fa-check-square' style={{fontSize:"1.7rem"}}></i> New Recipe Added{' '}
+				<i className='far fa-check-square' style={{fontSize:"1.7rem"}}></i> Success{' '}
 			</h3>
 		</div>
 	)

@@ -15,7 +15,11 @@ import {
 	RECIPE_UPDATE_REQUEST,
 	RECIPE_UPDATE_SUCCESS,
 	RECIPE_UPDATE_FAIL,
-	RECIPE_UPDATE_RESET
+	RECIPE_UPDATE_RESET,
+	RECIPE_DELETE_REQUEST,
+	RECIPE_DELETE_RESET,
+	RECIPE_DELETE_SUCCESS,
+	RECIPE_DELETE_FAIL,
 } from '../constants/recipeConstants'
 
 function recipeListReducer(state = { recipes: [] }, action) {
@@ -24,8 +28,7 @@ function recipeListReducer(state = { recipes: [] }, action) {
 			return { loading: true, recipes: [], random: {} }
 		case RECIPE_LIST_SUCCESS:
 			const allRecipes = action.payload
-			const randomRecipe =
-				allRecipes[Math.floor(Math.random() * allRecipes.length)]
+			const randomRecipe = allRecipes[Math.floor(Math.random() * allRecipes.length)]
 			return {
 				loading: false,
 				recipes: allRecipes,
@@ -83,6 +86,19 @@ const recipeCreateReducer = (state = {}, action) => {
 			return { loading: false, error: action.payload }
 		case RECIPE_CREATE_RESET:
 			return {}
+		default:
+			return state
+	}
+}
+
+export const recipeDeleteReducer = (state = {}, action) => {
+	switch (action.type) {
+		case RECIPE_DELETE_REQUEST:
+			return { loading: true }
+		case RECIPE_DELETE_SUCCESS:
+			return { loading: false, success: true }
+		case RECIPE_DELETE_FAIL:
+			return { loading: false, error: action.payload }
 		default:
 			return state
 	}

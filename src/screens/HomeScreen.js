@@ -39,33 +39,41 @@ const HomeScreen = () => {
 							<section className='homepage'>
 								{random ? (
 									<Fragment>
-										<Link to={`/recipe/${random._id}`} className='order2'>
+										<Link to={`/recipe/${random?._id}`} className='order2'>
 											<div className='info-group'>
 												<ul className='time'>
-													{random.hot ? (
+													{random?.hot ? (
 														<li>
-															<img src={hot} alt='Hot food' crossorigin/>
+															<img src={hot} alt='Hot food' crossOrigin='true' />
 														</li>
 													) : null}
 													{random.vegeterian ? (
 														<li>
-															<img src={vegetarian} alt='Vegeterian food' crossorigin/>
+															<img
+																src={vegetarian}
+																alt='Vegeterian food'
+																crossOrigin='true'
+															/>
 														</li>
 													) : null}
-													{random.glutenFree ? (
+													{random?.glutenFree ? (
 														<li>
-															<img src={glutenFree} alt='Gluten free food' crossorigin/>
+															<img
+																src={glutenFree}
+																alt='Gluten free food'
+																crossOrigin='true'
+															/>
 														</li>
 													) : null}
 												</ul>
 												<h1>
-													<strong>{random.title}</strong>
+													<strong>{random?.title}</strong>
 												</h1>
 											</div>
 										</Link>
 										<div
 											className='first-bg'
-											style={{ backgroundImage: `url(${random.img})` }}
+											style={{ backgroundImage: `url(${random?.img})` }}
 										></div>
 									</Fragment>
 								) : null}

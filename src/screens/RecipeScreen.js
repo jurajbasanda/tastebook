@@ -49,22 +49,22 @@ const RecipeScreen = () => {
 							<h1>{recipe.title}</h1>
 							<ul>
 								<li>
-									<img src={time} alt='' />
+									<img src={time} alt='' crossOrigin='true' />
 									<span>{recipe.prepTime} min</span>
 								</li>
 								{recipe.hot ? (
 									<li>
-										<img src={hot} alt='Hot food' />
+										<img src={hot} alt='Hot food' crossOrigin='true' />
 									</li>
 								) : null}
 								{recipe.vegeterian ? (
 									<li>
-										<img src={vegetarian} alt='Vegeterian food' />
+										<img src={vegetarian} alt='Vegeterian food' crossOrigin='true' />
 									</li>
 								) : null}
 								{recipe.glutenFree ? (
 									<li>
-										<img src={glutenFree} alt='Gluten free food' />
+										<img src={glutenFree} alt='Gluten free food' crossOrigin='true' />
 									</li>
 								) : null}
 							</ul>
@@ -87,7 +87,7 @@ const RecipeScreen = () => {
 							</div>
 							<div className='dsc-lists'>
 								<div className='dsc-imgs-group'>
-									<img src={recipe?.img} alt={recipe.title} />
+									<img src={recipe?.img} alt={recipe.title} crossOrigin='true' />
 								</div>
 							</div>
 						</div>

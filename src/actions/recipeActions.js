@@ -14,6 +14,10 @@ import {
 	RECIPE_UPDATE_REQUEST,
 	RECIPE_UPDATE_SUCCESS,
 	RECIPE_UPDATE_FAIL,
+	RECIPE_DELETE_REQUEST,
+	RECIPE_DELETE_RESET,
+	RECIPE_DELETE_FAIL,
+	RECIPE_DELETE_SUCCESS,
 } from '../constants/recipeConstants'
 import { logout } from './userAction'
 import axios from 'axios'
@@ -52,7 +56,7 @@ const getRecipeUser = (userId) => async (dispatch) => {
 	}
 }
 
-const createRecipe = ({
+const recipeCreate = ({
 	userId,
 	title,
 	keywords,
@@ -115,4 +119,40 @@ const createRecipe = ({
 	}
 }
 
-export { listRecipe, recipeDetail, getRecipeUser, createRecipe }
+const recipeDelete = (id) => async (dispatch, getState) => {
+	try {
+		dispatch({
+			type: RECIPE_DELETE_REQUEST,
+		})
+
+		const {
+			userLogin: { userInfo },
+		} = getState()
+
+		const config = {
+			headers: {
+				'auth-token': `${userInfo}`,
+			},
+		}
+
+		await axios.delete(`/api/recipes/${id}`, config)
+
+		dispatch({
+			type: RECIPE_DELETE_SUCCESS,
+		})
+	} catch (error) {
+		const message =
+			error.response && error.response.data.message
+				? error.response.data.message
+				: error.message
+		if (message === 'Not authorized, token failed') {
+			dispatch(logout())
+		}
+		dispatch({
+			type: RECIPE_DELETE_FAIL,
+			payload: message,
+		})
+	}
+}
+
+export { listRecipe, recipeDetail, getRecipeUser, recipeCreate, recipeDelete }

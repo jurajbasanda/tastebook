@@ -101,6 +101,9 @@
 }
 @media screen and (max-width: 1150px) {
 	//----------------------------------------------------1150px--------------------
+	.recipepage {
+		padding: 1rem 1.5rem 1rem 1.5rem;
+	}
 	.dsc-group {
 		display: flex;
 		flex-direction: column-reverse;
@@ -112,6 +115,7 @@
 }
 @media screen and (max-width: 600px) {
 	//-------------------------------------------------------600px--------------------
+	
 	.dsc-imgs-group {
 		img {
 			width: 20rem;

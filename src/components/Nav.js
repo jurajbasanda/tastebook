@@ -34,7 +34,9 @@ const Nav = () => {
 	}
 	//Desktop Category Menu
 	const menuCategory = () => {
-		MenuCategoryDesktop === '' ? setMenuCategoryDesktop(' open-desktop') : setMenuCategoryDesktop('')
+		MenuCategoryDesktop === ''
+			? setMenuCategoryDesktop(' open-desktop')
+			: setMenuCategoryDesktop('')
 	}
 	//all
 	const mobilMenus = () => {
@@ -54,11 +56,7 @@ const Nav = () => {
 					<ul>
 						<li>
 							<a href='/fb'>
-								<i
-									className='fab fa-facebook-f'
-									role='button'
-									title='facebook'
-								></i>
+								<i className='fab fa-facebook-f' role='button' title='facebook'></i>
 							</a>
 						</li>
 						<li>
@@ -118,6 +116,11 @@ const Nav = () => {
 					</div>
 					<ul className='menu'>
 						<li>
+							<Link to='/' rel='about' aria-label='about'>
+								home
+							</Link>
+						</li>
+						<li>
 							<button
 								onClick={menuCategory}
 								onKeyDown={menuCategory}
@@ -126,16 +129,6 @@ const Nav = () => {
 							>
 								category
 							</button>
-						</li>
-						<li>
-							<Link to='/' rel='about' aria-label='about'>
-								about
-							</Link>
-						</li>
-						<li>
-							<Link to='/' rel='contact' aria-label='contact'>
-								contact
-							</Link>
 						</li>
 					</ul>
 					<ul className={`menu-category-desktop ${MenuCategoryDesktop}`}>
@@ -185,6 +178,17 @@ const Nav = () => {
 					</ul>
 					<ul className={`mobil ${Menu}`}>
 						<li>
+							<li>
+								<Link
+									to='/'
+									rel='next'
+									aria-label='home'
+									onClick={mobilMenu}
+									onKeyDown={mobilMenu}
+								>
+									home
+								</Link>
+							</li>
 							<button
 								title='category'
 								className='category-btn'
@@ -196,28 +200,7 @@ const Nav = () => {
 								category
 							</button>
 						</li>
-						<li>
-							<Link
-								to='/about'
-								rel='next'
-								aria-label='about'
-								onClick={mobilMenu}
-								onKeyDown={mobilMenu}
-							>
-								about
-							</Link>
-						</li>
-						<li>
-							<Link
-								to='/contact'
-								rel='next'
-								aria-label='contact'
-								onClick={mobilMenu}
-								onKeyDown={mobilMenu}
-							>
-								contact
-							</Link>
-						</li>
+
 						<li>
 							<button onClick={mobilMenu} onKeyDown={mobilMenu}>
 								<i
